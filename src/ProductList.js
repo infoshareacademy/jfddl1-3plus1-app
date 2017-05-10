@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Table} from 'react-bootstrap'
+import {Table, Button, Glyphicon} from 'react-bootstrap'
 
 
 class ProductList extends React.Component {
@@ -33,10 +33,11 @@ class ProductList extends React.Component {
           <Table striped bordered condensed hover>
             <thead>
               <tr>
-                <th>number of item</th>
+                <th width={50}>number of item</th>
                 <th>Photo</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>options</th>
               </tr>
             </thead>
 
@@ -45,13 +46,11 @@ class ProductList extends React.Component {
               this.state.products.map(
                 product => (
                   <tr>
-
-
                       <td>{product.id}</td>
-                      <td><img  width={150} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
+                      <td><img  width={250} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
                       <td>{product.name}</td>
                       <td>{product.city}</td>
-
+                      <td><Button><Glyphicon glyph="star" color="red" /></Button></td>
                   </tr>
                 )
               )
