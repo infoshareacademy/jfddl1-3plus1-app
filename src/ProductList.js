@@ -1,6 +1,10 @@
 import React from 'react'
 
+import {Table} from 'react-bootstrap'
+
+
 class ProductList extends React.Component {
+
 
   constructor(props) {
     super(props)
@@ -21,26 +25,42 @@ class ProductList extends React.Component {
   }
 
 
-
-  render(){         //to sie zawsze powtarza
-    return(
+  render() {         //to sie zawsze powtarza
+    return (
       <div>
-        {
-          this.state.products.map(
-            product => (
-              <ul key={product.id}>
-                <li>{product.name}</li>
-                <li>{product.studentIds}</li>
-                <li>{product.city}</li>
-                <li>{product.level}</li>
+        <h1>Product List</h1>
 
-              </ul>
-            )
-          )
-        }
+          <Table striped bordered condensed hover>
+            <thead>
+              <tr>
+                <th>number of item</th>
+                <th>Photo</th>
+                <th>Description</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            {
+              this.state.products.map(
+                product => (
+                  <tr>
+
+
+                      <td>{product.id}</td>
+                      <td><img  width={150} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
+                      <td>{product.name}</td>
+                      <td>{product.city}</td>
+
+                  </tr>
+                )
+              )
+            }
+            </tbody>
+          </Table>
+
       </div>
     )
   }
-
 }
 export default ProductList
