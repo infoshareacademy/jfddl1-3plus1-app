@@ -1,0 +1,32 @@
+[33mcommit f576029b077360af061236be23a252d13c3c3267[m
+Author: Rafal <rafal.ciesielczuk@gmail.com>
+Date:   Wed May 10 14:57:46 2017 +0200
+
+    ProductList v.1.0
+
+[33mcommit 60b74079d297885fe2b44676006b39aae4234e3a[m
+Merge: 063a700 0f36382
+Author: adriantarasiuk <adrian.tarasiuk23@gmail.com>
+Date:   Tue May 9 16:43:16 2017 +0200
+
+    Merge pull request #2 from infoshareacademy/start
+    
+    Added react to project
+
+[33mcommit 0f36382282bdbf7598ad409b535cd1aa46d85f22[m
+Author: Adrian Tarasiuk <adrian.tarasiuk23@gmail.com>
+Date:   Tue May 9 16:37:02 2017 +0200
+
+    Added react to project
+
+[33mcommit 063a70019728d433961a450942b4069f04abdc57[m
+Author: Amazing Design <github@amazingdesign.eu>
+Date:   Tue May 9 15:22:52 2017 +0200
+
+    Create README.md
+
+[33mcommit 936a14abe9c522b0f65355bc91fcea4ebb561d71[m
+Author: Amazing Design <github@amazingdesign.eu>
+Date:   Tue May 9 15:20:34 2017 +0200
+
+    Update .gitignore
