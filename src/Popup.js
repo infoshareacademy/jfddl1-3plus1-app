@@ -29,11 +29,9 @@ const Popup = React.createClass({
 
         return (
             <div>
-                <p>Włącz popup</p>
-
                 <Button
                     bsStyle="primary"
-                    bsSize="large"
+                    bsSize="small"
                     onClick={this.open}
                 >
                     show popup
