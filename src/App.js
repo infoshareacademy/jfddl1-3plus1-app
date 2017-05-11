@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Popup from './Popup'
+import FavouriteBrands from './FavouriteBrands'
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
       <div className="App">
           <h1>wyszukiwarka</h1>
           <h1>najpopularniejsze marki</h1>
-          <h1>twoje ulubione marki</h1>
+          <FavouriteBrands/>
           <Popup/>
       </div>
     );
