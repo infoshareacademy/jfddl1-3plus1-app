@@ -6,7 +6,9 @@ import { Grid, Row, Col, Glyphicon} from 'react-bootstrap'
 class FavouriteBrands extends React.Component {
     render() {
         return (
+
             <Grid className="background-color">
+
                 <Row>
                     <h3>Twoje ulubione marki</h3>
                     <Col md={4}>

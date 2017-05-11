@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 import './index.css';
-import Navigation from "./Navigation";
-
+// import Navigation from "./Navigation";
+import App from './App'
 ReactDOM.render(
-  <Navigation />,
+  <App/>,
   document.getElementById('root')
 );
