@@ -1,16 +1,28 @@
 import React from 'react'
+import "./css/FavouriteBrandsStyle.css"
 
-import {Grid, Row, Col} from 'react-bootstrap'
+import { Grid, Row, Col, Glyphicon} from 'react-bootstrap'
 
 class FavouriteBrands extends React.Component {
     render() {
         return (
-            <div>
-                <h3>Twoje ulubione marki</h3>
-                <p>Pierwsza marka</p>
-                <p>Druga marka</p>
-                <p>Trzecia marka</p>
-            </div>
+            <Grid className="background-color">
+                <Row>
+                    <h3>Twoje ulubione marki</h3>
+                    <Col md={4}>
+                        <Glyphicon className="glyphicon-color" glyph="star"/>
+                        <p>Pierwsza marka</p>
+                    </Col>
+                    <Col md={4}>
+                        <Glyphicon className="glyphicon-color" glyph="star"/>
+                        <p>Druga marka</p>
+                    </Col>
+                    <Col md={4}>
+                        <Glyphicon className="glyphicon-color" glyph="star"/>
+                        <p>Trzecia marka</p>
+                    </Col>
+                </Row>
+            </Grid>
         )
     }
 }
