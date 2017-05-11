@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProductList from './ProductList'
 
 
+
+import Popup from './Popup'
+import FavouriteBrands from './FavouriteBrands'
 
 class App extends Component {
   render() {
@@ -12,11 +14,13 @@ class App extends Component {
 
         <ProductList/>
 
+          <h1>wyszukiwarka</h1>
+          <h1>najpopularniejsze marki</h1>
+          <FavouriteBrands/>
+          <Popup/>
       </div>
     );
   }
 }
 
 export default App;
-
-
