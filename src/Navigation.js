@@ -16,8 +16,8 @@ import {
   LinkContainer
 } from 'react-router-bootstrap'
 
-import ProductList from './ProductList'
-import FavouriteBrands from './FavouriteBrands'
+import ProductList from './ProductList'             //by RC
+import FavouriteBrands from './FavouriteBrands'     // by Adrian
 
 const Navigation = () => (
   <Router>
