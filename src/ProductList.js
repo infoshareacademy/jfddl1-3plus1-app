@@ -37,7 +37,8 @@ class ProductList extends React.Component {
                 <th>Photo</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>options</th>
+                <th>Add to favourites</th>
+                <th>Basket</th>
               </tr>
             </thead>
 
@@ -50,7 +51,8 @@ class ProductList extends React.Component {
                       <td><img  width={250} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
                       <td>{product.name}</td>
                       <td>{product.city}</td>
-                      <td><Button><Glyphicon glyph="star" color="red" /></Button></td>
+                      <td><Button><Glyphicon glyph="star" color="red" /> Add</Button></td>
+                      <td><Button><Glyphicon glyph="shopping-cart" color="red" /> Add to Basket</Button></td>
                   </tr>
                 )
               )
