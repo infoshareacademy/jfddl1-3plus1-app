@@ -22,31 +22,30 @@ import Dashboard from './Dashboard' // by Adrian
 const Navigation = () => (
   <Router>
     <Grid>
-      <Navbar>
+      <Navbar inverse collapseOnSelect fluid>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">3plus1 project </a>
+            <a href="#">3plus1 project</a>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
-        <Nav>
+        <Navbar.Collapse>
+          <Nav>
 
-          <IndexLinkContainer to="/dashboard">
-            <NavItem href="#">Dashboard</NavItem>
-          </IndexLinkContainer>
+            <IndexLinkContainer to="/dashboard">
+              <NavItem href="#">Dashboard</NavItem>
+            </IndexLinkContainer>
+            <LinkContainer to="/productList">
+              <NavItem href="#">Product list</NavItem>
+            </LinkContainer>
 
-          <LinkContainer to="#">
-            <NavItem href="#">Nav 2</NavItem>
-          </LinkContainer>
-
-          <LinkContainer to="#">
-            <NavItem href="#">Nav 3</NavItem>
-          </LinkContainer>
-
-          <LinkContainer to="/productList">
-            <NavItem href="#">Product list</NavItem>
-          </LinkContainer>
-
-        </Nav>
+          </Nav>
+          <Nav pullRight>
+            <LinkContainer to="#">
+              <NavItem href="#">Zaloguj się</NavItem>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
 
       <Row>
