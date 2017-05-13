@@ -58,5 +58,5 @@ const Navigation = () => (
       </Row>
     </Grid>
   </Router>
-)
+);
 export default Navigation;

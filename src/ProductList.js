@@ -7,11 +7,11 @@ class ProductList extends React.Component {
 
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       products: []
-    }
+    };
 
     fetch(
       process.env.PUBLIC_URL + '/data/products.json'
