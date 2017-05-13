@@ -16,8 +16,8 @@ import {
   LinkContainer
 } from 'react-router-bootstrap'
 
-import ProductList from './ProductList'             //by RC
-import FavouriteBrands from './FavouriteBrands'     // by Adrian
+import ProductList from './ProductList' //by RC
+import Dashboard from './Dashboard' // by Adrian
 
 const Navigation = () => (
   <Router>
@@ -25,25 +25,25 @@ const Navigation = () => (
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React-Bootstrap </a>
+            <a href="#">3plus1 project </a>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
 
-          <IndexLinkContainer to="/favouriteBrands">
-            <NavItem href="#">Home</NavItem>
+          <IndexLinkContainer to="/dashboard">
+            <NavItem href="#">Dashboard</NavItem>
           </IndexLinkContainer>
 
           <LinkContainer to="#">
-            <NavItem href="#">About</NavItem>
+            <NavItem href="#">Nav 2</NavItem>
           </LinkContainer>
 
           <LinkContainer to="#">
-            <NavItem href="#">Topics</NavItem>
+            <NavItem href="#">Nav 3</NavItem>
           </LinkContainer>
 
           <LinkContainer to="/productList">
-            <NavItem href="#">ProductList</NavItem>
+            <NavItem href="#">Product list</NavItem>
           </LinkContainer>
 
         </Nav>
@@ -52,7 +52,7 @@ const Navigation = () => (
       <Row>
         <Col md={12}>
           <Route path="/productList" component={ProductList}/>
-          <Route path="/favouriteBrands" component={FavouriteBrands}/>
+          <Route path="/dashboard" component={Dashboard}/>
 
         </Col>
       </Row>
