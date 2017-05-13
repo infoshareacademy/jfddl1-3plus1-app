@@ -48,7 +48,7 @@ class ProductList extends React.Component {
                 product => (
                   <tr>
                       <td>{product.id}</td>
-                      <td><img  width={250} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
+                      <td><img className="img-responsive" width={250} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
                       <td>{product.name}</td>
                       <td>{product.city}</td>
                       <td><Button><Glyphicon glyph="star" color="red" /> Add</Button></td>
