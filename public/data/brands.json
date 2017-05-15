@@ -2,48 +2,56 @@
    "datatype":"brands",
    "data":[
       {
+
          "id":"8ro",
          "name":"ABARTH",
          "name_clear":"abarth",
-         "has_image":false,
+         "has_image":"auto1.jpeg",
          "link":"\/api\/v2\/find\/8ro"
+
       },
       {
+
          "id":"iv",
          "name":"AC",
          "name_clear":"ac",
-         "has_image":false,
+         "has_image":"auto1.jpeg",
          "link":"\/api\/v2\/find\/iv"
       },
       {
+
          "id":"y2",
          "name":"ACURA",
          "name_clear":"acura",
-         "has_image":true,
+         "has_image":"auto1.jpeg",
          "link":"\/api\/v2\/find\/y2"
       },
       {
+
          "id":"98c",
          "name":"ADR",
          "name_clear":"adr",
-         "has_image":false,
+         "has_image":"auto1.jpeg",
          "link":"\/api\/v2\/find\/98c"
       },
       {
+
          "id":"ea",
          "name":"AEBI",
          "name_clear":"aebi",
-         "has_image":false,
+         "has_image":"auto1.jpeg",
          "link":"\/api\/v2\/find\/ea"
       },
       {
+
          "id":"gs",
          "name":"AEC",
          "name_clear":"aec",
-         "has_image":false,
+         "has_image":"auto1.jpeg",
          "link":"\/api\/v2\/find\/gs"
       },
       {
+
          "id":"94x",
          "name":"AEON MOTORCYCLES",
          "name_clear":"aeonmotorcycles",
