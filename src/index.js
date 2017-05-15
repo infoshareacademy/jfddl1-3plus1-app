@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
-
 import './index.css';
-// import Navigation from "./Navigation";
-import App from './App'
+
 ReactDOM.render(
-  <App/>,
+  <App />,
   document.getElementById('root')
 );

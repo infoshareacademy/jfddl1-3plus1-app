@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-
-
-
-import Popup from './Popup'
 import Navigation from './Navigation'
+import Popup from './Popup'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Popup/>
-        <Navigation/>
+          <Navigation/>
+          <Popup/>
+
       </div>
     );
   }
