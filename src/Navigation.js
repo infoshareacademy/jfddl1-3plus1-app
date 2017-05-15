@@ -21,8 +21,9 @@ import Dashboard from './Dashboard' // by Adrian
 
 const Navigation = () => (
   <Router>
-    <Grid>
-      <Navbar inverse collapseOnSelect fluid>
+    <Grid fluid>
+      <Row>
+      <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">3plus1 project</a>
@@ -47,7 +48,7 @@ const Navigation = () => (
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
+      </Row>
       <Row>
         <Col md={12}>
           <Route path="/productList" component={ProductList}/>

@@ -7,7 +7,7 @@ import {Grid, Row, Col, Glyphicon} from 'react-bootstrap'
 class FavouriteBrands extends React.Component {
     render() {
         return (
-                <Grid>
+
                     <Row className="show-grid text-center background">
                         <Col xs={12}><h4>
                             Twoje ulubione marki</h4>
@@ -25,7 +25,7 @@ class FavouriteBrands extends React.Component {
                             <p>Trzecia marka</p>
                         </Col>
                     </Row>
-                </Grid>
+
         )
     }
 }
