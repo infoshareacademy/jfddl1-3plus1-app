@@ -16,47 +16,47 @@ import {
   LinkContainer
 } from 'react-router-bootstrap'
 
-import ProductList from './ProductList'             //by RC
-import FavouriteBrands from './FavouriteBrands'     // by Adrian
+import ProductList from './ProductList' //by RC
+import Dashboard from './Dashboard' // by Adrian
 
 const Navigation = () => (
   <Router>
-    <Grid>
-      <Navbar>
+    <Grid fluid>
+      <Row>
+      <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React-Bootstrap </a>
+            <a href="#">3plus1 project</a>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
-        <Nav>
+        <Navbar.Collapse>
+          <Nav>
 
-          <IndexLinkContainer to="/favouriteBrands">
-            <NavItem href="#">Home</NavItem>
-          </IndexLinkContainer>
+            <IndexLinkContainer to="/dashboard">
+              <NavItem href="#">Dashboard</NavItem>
+            </IndexLinkContainer>
+            <LinkContainer to="/productList">
+              <NavItem href="#">Product list</NavItem>
+            </LinkContainer>
 
-          <LinkContainer to="#">
-            <NavItem href="#">About</NavItem>
-          </LinkContainer>
-
-          <LinkContainer to="#">
-            <NavItem href="#">Topics</NavItem>
-          </LinkContainer>
-
-          <LinkContainer to="/productList">
-            <NavItem href="#">ProductList</NavItem>
-          </LinkContainer>
-
-        </Nav>
+          </Nav>
+          <Nav pullRight>
+            <LinkContainer to="#">
+              <NavItem href="#">Zaloguj się</NavItem>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
-
+      </Row>
       <Row>
         <Col md={12}>
           <Route path="/productList" component={ProductList}/>
-          <Route path="/favouriteBrands" component={FavouriteBrands}/>
+          <Route path="/dashboard" component={Dashboard}/>
 
         </Col>
       </Row>
     </Grid>
   </Router>
-)
+);
 export default Navigation;

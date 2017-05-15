@@ -29,13 +29,13 @@ const Popup = React.createClass({
 
         return (
             <div>
-                <Button
+                {/*<Button
                     bsStyle="primary"
                     bsSize="small"
                     onClick={this.open}
                 >
                     show popup
-                </Button>
+                </Button>*/}
 
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
