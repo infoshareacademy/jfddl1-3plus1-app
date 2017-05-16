@@ -1,41 +1,26 @@
 import React from 'react'
 
-import { Popover, Tooltip, Button, Modal, } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
-const Popup = React.createClass({
-    getInitialState() {
-        return { showModal: true };
-    },
+class Popup extends React.Component {
+    state = {
+        showModal: true
+    };
 
-    close() {
-        this.setState({ showModal: false });
-    },
+    close = () => this.setState({ showModal: false });
 
-    open() {
-        this.setState({ showModal: true });
-    },
+    // open = () => this.setState({ showModal: true })
 
     render() {
-        const popover = (
-            <Popover id="modal-popover" title="popover">
-                very popover. such engagement
-            </Popover>
-        );
-        const tooltip = (
-            <Tooltip id="modal-tooltip">
-                wow.
-            </Tooltip>
-        );
-
         return (
             <div>
-                {/*<Button
-                    bsStyle="primary"
-                    bsSize="small"
-                    onClick={this.open}
-                >
-                    show popup
-                </Button>*/}
+                {/*<Button*/}
+                 {/*bsStyle="primary"*/}
+                 {/*bsSize="small"*/}
+                 {/*onClick={this.open}*/}
+                 {/*>*/}
+                 {/*show popup*/}
+                 {/*</Button>*/}
 
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
@@ -52,6 +37,8 @@ const Popup = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default Popup
+
+
