@@ -7,6 +7,7 @@ import {
   Grid,
   Col,
   Row,
+  Glyphicon
 } from 'react-bootstrap'
 
 
@@ -16,7 +17,7 @@ import Dashboard from './Dashboard' // by Adrian
 import BurgerMenuWrapper from './BurgerMenuWrapper'
 
 const links = [
-    { path: '/dashboard', label: 'Dashboard' },
+    { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/productList', label: 'Product List' },
 ]
 
