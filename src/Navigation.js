@@ -7,56 +7,49 @@ import {
   Grid,
   Col,
   Row,
-  Nav,
-  Navbar,
-  NavItem
 } from 'react-bootstrap'
-import {
-  IndexLinkContainer,
-  LinkContainer
-} from 'react-router-bootstrap'
+
 
 import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
 
-const Navigation = () => (
-  <Router>
-    <Grid fluid>
-      <Row>
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">3plus1 project</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
+import BurgerMenuWrapper from './BurgerMenuWrapper'
 
-            <IndexLinkContainer to="/dashboard">
-              <NavItem href="#">Dashboard</NavItem>
-            </IndexLinkContainer>
-            <LinkContainer to="/productList">
-              <NavItem href="#">Product list</NavItem>
-            </LinkContainer>
+const links = [
+    { path: '/dashboard', label: 'Dashboard' },
+    { path: '/productList', label: 'Product List' },
+]
 
-          </Nav>
-          <Nav pullRight>
-            <LinkContainer to="#">
-              <NavItem href="#">Zaloguj się</NavItem>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <Route path="/productList" component={ProductList}/>
-          <Route path="/dashboard" component={Dashboard}/>
+class Navigation extends React.Component {
 
-        </Col>
-      </Row>
-    </Grid>
-  </Router>
-);
+    state = {
+        sidebarOpen: false
+    }
+
+    toggleSidebar = (shouldBecomeOpen) => this.setState({
+        sidebarOpen: shouldBecomeOpen
+    })
+
+    render = () => (
+        <Router>
+          <BurgerMenuWrapper
+              isOpen={this.state.sidebarOpen}
+              toggleSidebar={this.toggleSidebar}
+              onStateChange={(state) => this.toggleSidebar(state.isOpen)}
+              links={links}
+          >
+            <Grid fluid>
+              <Row>
+                <Col md={12}>
+                  <Route path="/productList" component={ProductList}/>
+                  <Route path="/dashboard" component={Dashboard}/>
+
+                </Col>
+              </Row>
+            </Grid>
+          </BurgerMenuWrapper>
+        </Router>
+    )
+}
+
 export default Navigation;
