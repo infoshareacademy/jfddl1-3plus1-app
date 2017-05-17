@@ -93,5 +93,15 @@ body {
 .jumbotron {
   background-color: white;
 }
+
+.logo {
+  width: 30%;
+  height: 30%;
+  padding: 15px;
+}
+
+.logo-center {
+  text-align: -webkit-center
+}
 /*Adrian*/
 
