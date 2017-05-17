@@ -13,12 +13,14 @@ import {
 
 import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
+import LoginPage from './LoginPage'
 
 import BurgerMenuWrapper from './BurgerMenuWrapper'
 
 const links = [
     { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/productList', label: 'Product List' },
+    { path: '/LoginPage', label: 'Login Page' },
 ]
 
 class Navigation extends React.Component {
@@ -44,6 +46,7 @@ class Navigation extends React.Component {
                 <Col md={12}>
                   <Route path="/productList" component={ProductList}/>
                   <Route path="/dashboard" component={Dashboard}/>
+                  <Route path="/LoginPage" component={LoginPage}/>
 
                 </Col>
               </Row>

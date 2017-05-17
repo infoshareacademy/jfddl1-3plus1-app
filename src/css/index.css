@@ -4,3 +4,94 @@ body {
   font-family: 'Open Sans', sans-serif;
 ;
 }
+
+
+/*Adrian*/
+.main-login-container {
+  padding-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn {
+  border-radius: 0;
+  background-image: none;
+  background-color: #F39C12;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border: none;
+}
+
+.btn-default {
+  text-shadow: none;
+  color: white;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-default:hover, .btn-default:focus {
+  background-color: black;
+  color: white;
+}
+
+.btn-default:active, .btn-default.active {
+  background-color: black;
+  color: white;
+}
+
+.btn-default:active:focus {
+  color: white;
+  background-color: black;
+}
+
+.btn-width {
+  width: 100%;
+}
+
+.facebook-button {
+  background-color: #4267b2;
+}
+
+.facebook-button.btn:hover {
+  background-color: #365899;
+}
+
+
+.form-control {
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border-color: #F39C12;
+  box-shadow: none;
+}
+
+.padding-right-change {
+  padding-right: 3px;
+}
+
+.padding-left-change {
+  padding-left: 3px;
+}
+
+.add-margin {
+  margin: 18.5px;
+}
+
+.remove-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.add-border-bottom {
+  background-color: #353535;
+}
+
+.jumbotron {
+  background-color: white;
+}
+/*Adrian*/
+
