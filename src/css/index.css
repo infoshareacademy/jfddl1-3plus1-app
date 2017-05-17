@@ -7,12 +7,6 @@ body {
 
 
 /*Adrian*/
-.main-login-container {
-  padding-top: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
 .btn {
   border-radius: 0;
   background-image: none;
@@ -47,19 +41,6 @@ body {
   background-color: black;
 }
 
-.btn-width {
-  width: 100%;
-}
-
-.facebook-button {
-  background-color: #4267b2;
-}
-
-.facebook-button.btn:hover {
-  background-color: #365899;
-}
-
-
 .form-control {
   border-radius: 0;
 }
@@ -67,41 +48,6 @@ body {
 .form-control:focus {
   border-color: #F39C12;
   box-shadow: none;
-}
-
-.padding-right-change {
-  padding-right: 3px;
-}
-
-.padding-left-change {
-  padding-left: 3px;
-}
-
-.add-margin {
-  margin: 18.5px;
-}
-
-.remove-padding {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.add-border-bottom {
-  background-color: #353535;
-}
-
-.jumbotron {
-  background-color: white;
-}
-
-.logo {
-  width: 30%;
-  height: 30%;
-  padding: 15px;
-}
-
-.logo-center {
-  text-align: -webkit-center
 }
 /*Adrian*/
 
