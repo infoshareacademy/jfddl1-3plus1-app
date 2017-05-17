@@ -6,7 +6,7 @@ body {
 }
 
 
-/*Adrian*/
+/*BUTTONS*/
 .btn {
   border-radius: 0;
   background-image: none;
@@ -40,7 +40,9 @@ body {
   color: white;
   background-color: black;
 }
+/*BUTTONS*/
 
+/*FORM*/
 .form-control {
   border-radius: 0;
 }
@@ -49,5 +51,41 @@ body {
   border-color: #F39C12;
   box-shadow: none;
 }
-/*Adrian*/
+/*FORM*/
+
+/*LOGIN MODAL*/
+.modal-content {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.well {
+  background-image: none;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  background-color: white;
+  box-shadow: none;
+  padding: 0;
+}
+
+.login-button-width {
+  width: 50%;
+}
+
+.fb-button {
+  background-color: #4267b2;
+  margin-bottom: 5px;
+}
+
+.fb-button:hover {
+  background-color: #365899;
+}
+
+.p-margin {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+/*LOGIN MODAL*/
 
