@@ -7,59 +7,53 @@ import {
   Grid,
   Col,
   Row,
-  Nav,
-  Navbar,
-  NavItem
+  Glyphicon
 } from 'react-bootstrap'
-import {
-  IndexLinkContainer,
-  LinkContainer
-} from 'react-router-bootstrap'
+
 
 import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
+import LoginPage from './LoginPage'
 
+import BurgerMenuWrapper from './BurgerMenuWrapper'
 
-const Navigation = () => (
-  <Router>
-    <Grid fluid>
-      <Row>
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">3plus1 project</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
+const links = [
+    { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
+    { path: '/productList', label: 'Product List' },
+    { path: '/LoginPage', label: 'Login Page' },
+]
 
-            <IndexLinkContainer to="/dashboard">
-              <NavItem href="#">Dashboard</NavItem>
-            </IndexLinkContainer>
-            <LinkContainer to="/productList">
-              <NavItem href="#">Product list</NavItem>
-            </LinkContainer>
+class Navigation extends React.Component {
 
-          </Nav>
-          <Nav pullRight>
-            <LinkContainer to="#">
-              <NavItem href="#">Zaloguj się</NavItem>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <Route path="/productList" component={ProductList}/>
-          <Route path="/dashboard" component={Dashboard}/>
+    state = {
+        sidebarOpen: false
+    }
 
-        </Col>
-      </Row>
+    toggleSidebar = (shouldBecomeOpen) => this.setState({
+        sidebarOpen: shouldBecomeOpen
+    })
 
+    render = () => (
+        <Router>
+          <BurgerMenuWrapper
+              isOpen={this.state.sidebarOpen}
+              toggleSidebar={this.toggleSidebar}
+              onStateChange={(state) => this.toggleSidebar(state.isOpen)}
+              links={links}
+          >
+            <Grid fluid>
+              <Row>
+                <Col md={12}>
+                  <Route path="/productList" component={ProductList}/>
+                  <Route path="/dashboard" component={Dashboard}/>
+                  <Route path="/LoginPage" component={LoginPage}/>
 
-    </Grid>
-  </Router>
-);
+                </Col>
+              </Row>
+            </Grid>
+          </BurgerMenuWrapper>
+        </Router>
+    )
+}
+
 export default Navigation;

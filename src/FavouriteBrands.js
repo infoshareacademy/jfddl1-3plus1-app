@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./css/favouriteBrands.css"
 
-import {Grid, Row, Col, Glyphicon} from 'react-bootstrap'
+import { Row, Col, Glyphicon} from 'react-bootstrap'
 
 class FavouriteBrands extends React.Component {
     render() {
