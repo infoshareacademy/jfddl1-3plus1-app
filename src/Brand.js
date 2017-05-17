@@ -2,7 +2,7 @@ import React from 'react'
 
 import {Table} from 'react-bootstrap'
 
-class Marka extends React.Component {
+class Brand extends React.Component {
 
 
   constructor(props) {
@@ -53,4 +53,4 @@ class Marka extends React.Component {
     )
   }
 }
-export default Marka
+export default Brand
