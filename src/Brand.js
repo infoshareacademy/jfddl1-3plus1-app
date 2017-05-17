@@ -1,10 +1,9 @@
 import React from 'react'
 
 import {Table} from 'react-bootstrap'
+import FilterControls from './FilterControlls'
 
 class Brand extends React.Component {
-
-
   constructor(props) {
     super(props);
 
@@ -22,13 +21,11 @@ class Brand extends React.Component {
       })
     )
   }
-
-
   render() {
     return (
       <div>
         <h1>Marka</h1>
-
+        <FilterControls/>
         <Table striped bordered condensed hover>
           <thead>
           <tr>
@@ -48,7 +45,6 @@ class Brand extends React.Component {
           }
           </tbody>
         </Table>
-
       </div>
     )
   }
