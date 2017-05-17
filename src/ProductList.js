@@ -2,7 +2,6 @@ import React from 'react'
 
 import {Table, Button, Glyphicon} from 'react-bootstrap'
 
-
 class ProductList extends React.Component {
 
 

@@ -12,8 +12,8 @@ import {
 
 
 import ProductList from './ProductList' //by RC
-import Dashboard from './Dashboard' // by Adrian
-import LoginPage from './LoginPage'
+import Dashboard from './Dashboard' //  by Adrian
+import LoginPage from './LoginPage' //  by Adrian
 
 import BurgerMenuWrapper from './BurgerMenuWrapper'
 

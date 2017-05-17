@@ -9,10 +9,8 @@ class App extends Component {
       <div className="App">
           <Navigation/>
           {/*<Popup/>*/}
-
       </div>
     );
   }
 }
-
 export default App;
