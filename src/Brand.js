@@ -8,7 +8,8 @@ class Brand extends React.Component {
     super(props);
 
     this.state = {
-      brands: []
+      brands: [],
+      searchPhrase: ''
     };
 
     fetch(
@@ -21,23 +22,49 @@ class Brand extends React.Component {
       })
     )
   }
+  updateSearchPhrase=(event)=>{
+    this.setState({searchPhrase: event.target.value})
+}
+
   render() {
     return (
       <div>
-        <h1>Marka</h1>
-        <FilterControls/>
+        <h3>Napisz markę</h3>
+
+        <FilterControls handleSearchPhraseUpdate={this.updateSearchPhrase}/>
+
+
+        {/*<BrandsTable*/}
+        {/*brands={*/}
+        {/*this.state.brands.filter(*/}
+        {/*brand => (*/}
+        {/*this.state.searchPhrase === '' ?*/}
+        {/*true :*/}
+        {/*brand.name.toLowerCase().includes(this.state.searchPhrase.toLowerCase())*/}
+        {/*)*/}
+        {/*)*/}
+        {/*}*/}
+        {/*/>*/}
+
+
         <Table striped bordered condensed hover>
           <thead>
           <tr>
-            <th>Marka</th>
+            <th><h3>Marka</h3></th>
           </tr>
           </thead>
 
           <tbody>
           {
-            this.state.brands.map(
+            this.state.brands.filter(
               brand => (
-                <tr>
+                this.state.searchPhrase === '' ?
+                  true :
+                  brand.name.toLowerCase().includes(this.state.searchPhrase.toLowerCase())
+              )
+            ).map(
+              brand => (
+                <tr key={brand.id}>
                   <td>{brand.name}</td>
                 </tr>
               )

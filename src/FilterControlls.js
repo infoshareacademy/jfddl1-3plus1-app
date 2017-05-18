@@ -14,6 +14,10 @@ const FilterControls = (props) => (
         onChange={props.handleSearchPhraseUpdate}
       />
     </FormGroup>
+    <Button>OPEL</Button>
+    <Button>AUDI</Button>
+    <Button>BMW</Button>
+
   </form>
 )
 

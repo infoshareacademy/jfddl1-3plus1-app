@@ -27,7 +27,14 @@ class MainSearch extends React.Component {
                 <Row>
                     <h4 className="text-center">Wyszukiwarka</h4>
                     <Col xs={4} className="text-center">
-                            <h5>Marka</h5>
+                            <h5>Model</h5>
+                        <Select.Async
+                            name="form-field-name"
+                            loadOptions={getOptions}
+                        />
+                    </Col>
+                    <Col xs={4} className="text-center">
+                                <h5>Marka</h5>
                         <Select.Async
                             name="form-field-name"
                             loadOptions={getOptions}
