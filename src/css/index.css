@@ -6,13 +6,7 @@ body {
 }
 
 
-/*Adrian*/
-.main-login-container {
-  padding-top: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
+/*BUTTONS*/
 .btn {
   border-radius: 0;
   background-image: none;
@@ -46,20 +40,9 @@ body {
   color: white;
   background-color: black;
 }
+/*BUTTONS*/
 
-.btn-width {
-  width: 100%;
-}
-
-.facebook-button {
-  background-color: #4267b2;
-}
-
-.facebook-button.btn:hover {
-  background-color: #365899;
-}
-
-
+/*FORM*/
 .form-control {
   border-radius: 0;
 }
@@ -68,30 +51,41 @@ body {
   border-color: #F39C12;
   box-shadow: none;
 }
+/*FORM*/
 
-.padding-right-change {
-  padding-right: 3px;
+/*LOGIN MODAL*/
+.modal-content {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
-.padding-left-change {
-  padding-left: 3px;
-}
-
-.add-margin {
-  margin: 18.5px;
-}
-
-.remove-padding {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.add-border-bottom {
-  background-color: #353535;
-}
-
-.jumbotron {
+.well {
+  background-image: none;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
   background-color: white;
+  box-shadow: none;
+  padding: 0;
 }
-/*Adrian*/
+
+.login-button-width {
+  width: 50%;
+}
+
+.fb-button {
+  background-color: #4267b2;
+  margin-bottom: 5px;
+}
+
+.fb-button:hover {
+  background-color: #365899;
+}
+
+.p-margin {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+/*LOGIN MODAL*/
 
