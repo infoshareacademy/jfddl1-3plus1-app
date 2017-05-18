@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom'
 
 const styles = {
     bmBurgerButton: {
-        position: 'fixed',
-        width: '36px',
-        height: '30px',
-        left: '36px',
-        top: '36px'
+       display: 'none'
     },
     bmBurgerBars: {
         background: '#373a47'

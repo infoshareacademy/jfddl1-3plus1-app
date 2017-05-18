@@ -12,7 +12,7 @@ import {
 
 import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
-
+import TopBar from './TopBar'
 import BurgerMenuWrapper from './BurgerMenuWrapper'
 
 const links = [
@@ -38,7 +38,8 @@ class Navigation extends React.Component {
               onStateChange={(state) => this.toggleSidebar(state.isOpen)}
               links={links}
           >
-            <Grid fluid>
+            <Grid fluid className="main-grid-padding">
+              <TopBar toggleSidebar={this.toggleSidebar}/>
               <Row>
                 <Col md={12}>
                   <Route path="/productList" component={ProductList}/>

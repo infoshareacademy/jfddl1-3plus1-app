@@ -1,6 +1,6 @@
 import React from 'react'
 import RegisterForm from './RegisterForm'
-import { Button, Collapse, Well } from 'react-bootstrap'
+import { Collapse, Well } from 'react-bootstrap'
 
 class ShowRegister extends React.Component {
     constructor(...args) {
