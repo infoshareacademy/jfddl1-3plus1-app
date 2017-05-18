@@ -102,3 +102,15 @@ body {
 }
 /*MAIN GRID*/
 
+/*SEARCH REMEMBER*/
+.image-size {
+  width: 50%;
+  height: 50%;
+}
+
+.center-image {
+  text-align: -webkit-center;
+  box-shadow: 0 1px 8px -1px rgba(52, 65, 108, 0.25)
+}
+/*SEARCH REMEMBER*/
+
