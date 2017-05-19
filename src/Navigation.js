@@ -17,7 +17,8 @@ import BurgerMenuWrapper from './BurgerMenuWrapper'
 
 const links = [
     { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
-    { path: '/productList', label: 'Product List' },
+    { path: '/productList', label: '#Ulubione' },
+    { path: '/productList', label: '#Panel Uzytkownika' },
 ]
 
 class Navigation extends React.Component {
@@ -42,8 +43,9 @@ class Navigation extends React.Component {
               <TopBar toggleSidebar={this.toggleSidebar}/>
               <Row>
                 <Col md={12}>
-                  <Route path="/productList" component={ProductList}/>
                   <Route path="/dashboard" component={Dashboard}/>
+                  <Route path="/#ulubione" component='#'/>
+                  <Route path="/#Panel Uzytkownika" component='#'/>
 
                 </Col>
               </Row>

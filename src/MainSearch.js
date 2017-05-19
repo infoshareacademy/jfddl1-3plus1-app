@@ -123,6 +123,7 @@ class MainSearch extends React.Component {
               this.state.parts.map(
                 part =>
                   <tr>
+                    {/*<a href="">{part.name}</a>*/}
                     <td>{part.name}</td>
                   </tr>
               )
