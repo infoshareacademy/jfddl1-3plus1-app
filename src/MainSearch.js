@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Grid, Row, Col} from 'react-bootstrap'
+import {Button, Grid, Row, Col, Table} from 'react-bootstrap'
 
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
@@ -28,23 +28,23 @@ class MainSearch extends React.Component {
     selectedModel: null,
     types: [],
     selectedType: null,
-    products: []
+    parts: []
   }
 
   componentWillMount() {
     fetch(
-      process.env.PUBLIC_URL + '/data/brands.json'
+      process.env.PUBLIC_URL + '/data/brands/brands.json'
     ).then(
       response => response.json()
     ).then(
       brands => this.setState({
-        brands: brands.data
+        brands: brands
       })
     )
   }
 
-  handleBrandSelect = (event) => {
-    const link = event.target.value
+  handleBrandSelect = (data) => {
+    const link = data.value
 
     this.setState({
       selectedBrand: link
@@ -55,14 +55,14 @@ class MainSearch extends React.Component {
         response => response.json()
       ).then(
         models => this.setState({
-          models: models.data
+          models: models
         })
       )
     })
   }
 
-  handleModelSelect = (event) => {
-    const link = event.target.value
+  handleModelSelect = (data) => {
+    const link = data.value
 
     this.setState({
       selectedModel: link
@@ -72,27 +72,8 @@ class MainSearch extends React.Component {
       ).then(
         response => response.json()
       ).then(
-        types => this.setState({
-          types: types.data
-        })
-      )
-    })
-  }
-
-
-  handleTypeSelect = (event) => {
-    const link = event.target.value
-
-    this.setState({
-      selectedType: link
-    }, () => {
-      fetch(
-        link
-      ).then(
-        response => response.json()
-      ).then(
-        products => this.setState({
-          products: products.data
+        parts => this.setState({
+          parts: parts
         })
       )
     })
@@ -106,62 +87,51 @@ class MainSearch extends React.Component {
           <h4 className="text-center">Wyszukiwarka</h4>
           <Col xs={4} className="text-center">
             <h5>Marka</h5>
-            <select
+            <Select
               name="brand"
               value={this.state.selectedBrand}
               onChange={this.handleBrandSelect}
-            >
-              <option>Wybierz</option>
-              {
-                this.state.brands.map(
-                  brand => <option value={brand.link}>{brand.name}</option>
-                )
-              }
-
-            </select>
+              options={this.state.brands.map(
+                brand => ({ value: brand.link, label: brand.name })
+              )}
+            />
           </Col>
 
           <Col xs={4} className="text-center">
             <h5>Model</h5>
-            <select
+
+            <Select
               name="model"
               onChange={this.handleModelSelect}
-            >
-              <option>Wybierz</option>
-              {
-                this.state.models.map(
-                  model => <option value={model.link}>{model.name}</option>
-                )
-              }
+              options={this.state.models.map(
+                model => ({ value: model.link, label: model.name })
+              )}
+            />
 
-            </select>
           </Col>
 
-          <Col xs={4} className="text-center">
-            <h5>Typ</h5>
-            <select
-              name="type"
-              onChange={this.handleTypeSelect}
-            >
-              <option>Wybierz</option>
-              {
-                this.state.types.map(
-                  type => <option value={type.link}>{type.name}</option>
-                )
-              }
 
-            </select>
-          </Col>
+          {/*--------------------------------*/}
+          <Table striped bordered condensed hover>
+            <thead>
+            <tr>
+              <th width={50}>searched</th>
+            </tr>
+            </thead>
 
-          <ul>
+            <tbody>
             {
-            this.state.products.map(
-              product =>
-                <li key="products">{product.name}</li>
-            )
-          }
+              this.state.parts.map(
+                part =>
+                  <tr>
+                    <td>{part.name}</td>
+                  </tr>
+              )
+            }
+            </tbody>
+          </Table>
 
-          </ul>
+          {/*--------------------------------*/}
 
           <Col xs={12} className="text-center">
             <Button>
