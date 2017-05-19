@@ -14,11 +14,13 @@ import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
 import TopBar from './TopBar'
 import BurgerMenuWrapper from './BurgerMenuWrapper'
+import YourFavoriteList from './YourFavoriteList'
+import UserPanel from './UserPanel'
 
 const links = [
     { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
-    { path: '/productList', label: '#Ulubione' },
-    { path: '/productList', label: '#Panel Uzytkownika' },
+    { path: '/favoriteList', label: 'Ulubione' },
+    { path: '/userPanel', label: 'Panel użytkownika' },
 ]
 
 class Navigation extends React.Component {
@@ -44,8 +46,8 @@ class Navigation extends React.Component {
               <Row>
                 <Col md={12}>
                   <Route path="/dashboard" component={Dashboard}/>
-                  <Route path="/#ulubione" component='#'/>
-                  <Route path="/#Panel Uzytkownika" component='#'/>
+                  <Route path="/favoriteList" component={YourFavoriteList}/>
+                  <Route path="/userPanel" component={UserPanel}/>
 
                 </Col>
               </Row>
