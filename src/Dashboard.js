@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchRemember from "./SearchRemember";
+import LastAddedFavoriteList from "./LastAddedFavoriteList";
 import MainSearch from "./MainSearch"
 
 class Dashboard extends React.Component {
@@ -7,7 +7,7 @@ class Dashboard extends React.Component {
         return (
             <div>
                 <MainSearch />
-                <SearchRemember />
+                <LastAddedFavoriteList />
             </div>
         )
     }

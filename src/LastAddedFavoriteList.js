@@ -1,14 +1,14 @@
 import React from 'react'
 import { Row, Col, Image } from 'react-bootstrap'
 
-class SearchRemember extends React.Component {
+class LastAddedFavoriteList extends React.Component {
     render() {
         return (
 
                     <Row className="text-center">
                         <Col xs={12}>
                           <h4>
-                            Dodane do zapamiętanych z wyszukiwania
+                            Ostatnio dodane do ulubionych
                           </h4>
                         </Col>
                         <Col xs={6} md={3} className="center-image">
@@ -33,4 +33,4 @@ class SearchRemember extends React.Component {
     }
 }
 
-export default SearchRemember
+export default LastAddedFavoriteList

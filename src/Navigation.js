@@ -19,8 +19,8 @@ import UserPanel from './UserPanel'
 
 const links = [
     { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
-    { path: '/favoriteList', label: 'Ulubione' },
-    { path: '/userPanel', label: 'Panel użytkownika' },
+    { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
+    { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> }
 ]
 
 class Navigation extends React.Component {
