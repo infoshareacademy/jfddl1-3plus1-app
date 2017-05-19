@@ -89,3 +89,37 @@ body {
 }
 /*LOGIN MODAL*/
 
+/*TOP BAR*/
+.top-bar-padding {
+  padding: 20px;
+  background-color: #374459;
+}
+
+.top-bar-logo {
+  width: 40%;
+  height: 40%;
+}
+
+.top-bar-logo-center {
+  text-align: -webkit-center;
+}
+/*TOP BAR*/
+
+/*MAIN GRID*/
+.main-grid-padding {
+  padding: 0;
+}
+/*MAIN GRID*/
+
+/*SEARCH REMEMBER*/
+.image-size {
+  width: 50%;
+  height: 50%;
+}
+
+.center-image {
+  text-align: -webkit-center;
+  box-shadow: 0 1px 8px -1px rgba(52, 65, 108, 0.25)
+}
+/*SEARCH REMEMBER*/
+

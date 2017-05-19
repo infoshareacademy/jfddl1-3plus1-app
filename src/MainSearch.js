@@ -99,18 +99,15 @@ class MainSearch extends React.Component {
             </select>
           </Col>
 
-          <Col xs={12} className="text-center">
-            <Button>
-              Szukaj
-            </Button>
-          </Col>
-        </Row>
-      </Grid>
-    )
-  }
+                    <Col xs={12} className="text-center">
+                            <Button>
+                                Szukaj
+                            </Button>
+                    </Col>
+                </Row>
+            </Grid>
+        )
+    }
 }
 
 export default MainSearch
-
-
-//-----------------------------------------------

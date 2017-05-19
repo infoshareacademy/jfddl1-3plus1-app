@@ -1,15 +1,13 @@
 import React from 'react'
-import FavouriteBrands from "./FavouriteBrands";
+import SearchRemember from "./SearchRemember";
 import MainSearch from "./MainSearch"
-import Brand from "./Brand"; //by RC
 
 class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <MainSearch/>
-                <FavouriteBrands/>
-                <Brand/>
+                <MainSearch />
+                <SearchRemember />
             </div>
         )
     }
