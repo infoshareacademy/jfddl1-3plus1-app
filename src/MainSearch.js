@@ -85,33 +85,32 @@ class MainSearch extends React.Component {
       <Grid>
         <Row>
           <h4 className="text-center">Wyszukiwarka</h4>
-          <Col xs={4} className="text-center">
+          <Col xs={6} className="text-center">
             <h5>Marka</h5>
             <Select
               name="brand"
               value={this.state.selectedBrand}
               onChange={this.handleBrandSelect}
               options={this.state.brands.map(
-                brand => ({ value: brand.link, label: brand.name })
+                brand => ({value: brand.link, label: brand.name})
               )}
             />
           </Col>
 
-          <Col xs={4} className="text-center">
+          <Col xs={6} className="text-center">
             <h5>Model</h5>
 
             <Select
               name="model"
               onChange={this.handleModelSelect}
+              value={this.state.selectedModel}
               options={this.state.models.map(
-                model => ({ value: model.link, label: model.name })
+                model => ({value: model.link, label: model.name})
               )}
             />
 
           </Col>
 
-
-          {/*--------------------------------*/}
           <Table striped bordered condensed hover>
             <thead>
             <tr>
@@ -131,13 +130,6 @@ class MainSearch extends React.Component {
             </tbody>
           </Table>
 
-          {/*--------------------------------*/}
-
-          <Col xs={12} className="text-center">
-            <Button>
-              Szukaj
-            </Button>
-          </Col>
         </Row>
       </Grid>
     )
