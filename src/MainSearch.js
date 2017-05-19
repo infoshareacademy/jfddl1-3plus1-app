@@ -27,7 +27,8 @@ class MainSearch extends React.Component {
     models: [],
     selectedModel: null,
     types: [],
-    selectedType: null
+    selectedType: null,
+    products: []
   }
 
   componentWillMount() {
@@ -60,6 +61,42 @@ class MainSearch extends React.Component {
     })
   }
 
+  handleModelSelect = (event) => {
+    const link = event.target.value
+
+    this.setState({
+      selectedModel: link
+    }, () => {
+      fetch(
+        link
+      ).then(
+        response => response.json()
+      ).then(
+        types => this.setState({
+          types: types.data
+        })
+      )
+    })
+  }
+
+
+  handleTypeSelect = (event) => {
+    const link = event.target.value
+
+    this.setState({
+      selectedType: link
+    }, () => {
+      fetch(
+        link
+      ).then(
+        response => response.json()
+      ).then(
+        products => this.setState({
+          products: products.data
+        })
+      )
+    })
+  }
 
 
   render() {
@@ -83,11 +120,12 @@ class MainSearch extends React.Component {
 
             </select>
           </Col>
+
           <Col xs={4} className="text-center">
             <h5>Model</h5>
             <select
               name="model"
-              onChange={this.handleBrandSelect}
+              onChange={this.handleModelSelect}
             >
               <option>Wybierz</option>
               {
@@ -99,15 +137,41 @@ class MainSearch extends React.Component {
             </select>
           </Col>
 
-                    <Col xs={12} className="text-center">
-                            <Button>
-                                Szukaj
-                            </Button>
-                    </Col>
-                </Row>
-            </Grid>
-        )
-    }
+          <Col xs={4} className="text-center">
+            <h5>Typ</h5>
+            <select
+              name="type"
+              onChange={this.handleTypeSelect}
+            >
+              <option>Wybierz</option>
+              {
+                this.state.types.map(
+                  type => <option value={type.link}>{type.name}</option>
+                )
+              }
+
+            </select>
+          </Col>
+
+          <ul>
+            {
+            this.state.products.map(
+              product =>
+                <li key="products">{product.name}</li>
+            )
+          }
+
+          </ul>
+
+          <Col xs={12} className="text-center">
+            <Button>
+              Szukaj
+            </Button>
+          </Col>
+        </Row>
+      </Grid>
+    )
+  }
 }
 
 export default MainSearch
