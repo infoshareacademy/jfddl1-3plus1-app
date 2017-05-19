@@ -1,6 +1,6 @@
 import React from 'react'
 import LogInModal from './LogInModal'
-import { Grid, Row, Col, Glyphicon, Button } from 'react-bootstrap'
+import { Grid, Row, Col, Image, Button } from 'react-bootstrap'
 
 class TopBar extends React.Component {
   render() {
@@ -15,8 +15,8 @@ class TopBar extends React.Component {
               MENU
             </Button>
           </Col>
-          <Col md={4}>
-            LOGO
+          <Col md={4} className="top-bar-logo-center">
+            <Image className="top-bar-logo" responsive src={process.env.PUBLIC_URL + '/images/logo_projekt.png'}/>
           </Col>
           <Col md={4} className="text-right">
             <LogInModal/>
