@@ -16,11 +16,9 @@ class LogInModal extends React.Component {
         return (
             <div>
                 <Button
-                 bsStyle="primary"
-                 bsSize="small"
                  onClick={this.open}
                  >
-                    <Glyphicon glyph="user" /> Twoje konto
+                    <Glyphicon glyph="user" /> ZALOGUJ SIĘ
                  </Button>
 
                 <Modal show={this.state.showModal} onHide={this.close}>

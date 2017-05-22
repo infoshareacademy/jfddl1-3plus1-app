@@ -17,7 +17,7 @@ const styles = {
         background: '#bdc3c7'
     },
     bmMenu: {
-        background: '#373a47',
+        background: '#000000',
         padding: '2.5em 1.5em 0',
         fontSize: '1.15em'
     },
