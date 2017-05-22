@@ -16,11 +16,13 @@ import TopBar from './TopBar'
 import BurgerMenuWrapper from './BurgerMenuWrapper'
 import YourFavoriteList from './YourFavoriteList'
 import UserPanel from './UserPanel'
+import ProductWindow from './ProductWindow.js'
 
 const links = [
     { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
-    { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> }
+    { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
+    { path: '/ProductWindow', label: 'Okno produktu' },
 ]
 
 class Navigation extends React.Component {
@@ -46,6 +48,7 @@ class Navigation extends React.Component {
               <Row>
                 <Col md={12}>
                   <Route path="/dashboard" component={Dashboard}/>
+                  <Route path="/product/:brand/:model/:productId" component={ProductWindow}/>
                   <Route path="/favoriteList" component={YourFavoriteList}/>
                   <Route path="/userPanel" component={UserPanel}/>
 

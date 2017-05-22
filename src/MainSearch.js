@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Grid, Row, Col, Table} from 'react-bootstrap'
-
+import {Link} from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
@@ -124,7 +124,7 @@ class MainSearch extends React.Component {
                 part =>
                   <tr>
                     {/*<a href="">{part.name}</a>*/}
-                    <td>{part.name}</td>
+                    <td><Link to={'/product/' + part.id}>{part.name}</Link></td>
                   </tr>
               )
             }
