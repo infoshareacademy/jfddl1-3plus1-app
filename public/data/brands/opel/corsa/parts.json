@@ -1,7 +1,26 @@
 [
   {
-    "id": "opel-corsa-1",
-    "name": "tłumik anihilator",
+    "id": "1",
+    "name": "tłumik",
+    "partName": "tłumik",
+    "link": "\/data\/brands\/opel\/corsa\/opel-corsa-1\/tlumik.json"
+  },
+  {
+    "id": "2",
+    "name": "zderzak",
+    "photo": "http://lorempixel.com/400/200/",
+    "price": 321,
+    "name": "zderzak",
+    "link": "\/data\/brands\/opel\/corsa\/opel-corsa-1\/zderzak.json"
+  },
+  {
+    "id": "3",
+    "name": "alufelgi",
+    "link": "\/data\/brands\/opel\/corsa\/opel-corsa-1\/alufelgi.json"
+  },
+  {
+    "id": "4",
+    "name": "deska",
     "link": "\/data\/brands\/opel\/corsa\/opel-corsa-1\/index.json"
   }
 ]

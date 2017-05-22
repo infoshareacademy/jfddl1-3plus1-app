@@ -3,5 +3,10 @@
     "id": "opel-corsa",
     "name": "Opel Corsa",
     "link": "\/data\/brands\/opel\/corsa\/parts.json"
+  },
+  {
+    "id": "opel-Astra",
+    "name": "Opel-astra",
+    "link": "\/data\/brands\/opel\/astra\/parts.json"
   }
 ]
