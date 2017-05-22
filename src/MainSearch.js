@@ -124,7 +124,7 @@ class MainSearch extends React.Component {
                 part =>
                   <tr>
                     {/*<a href="">{part.name}</a>*/}
-                    <td><Link to={'/product/' + part.id}>{part.name}</Link></td>
+                    <td><Link to={'/ProductWindow'}>{part.name}</Link></td>
                   </tr>
               )
             }
