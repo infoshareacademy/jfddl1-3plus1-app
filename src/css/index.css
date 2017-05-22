@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+;
+}
+
+
+/*BUTTONS*/
+.btn {
+  border-radius: 0;
+  background-image: none;
+  background-color: #F39C12;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border: none;
+}
+
+.btn-default {
+  text-shadow: none;
+  color: white;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-default:hover, .btn-default:focus {
+  background-color: black;
+  color: white;
+}
+
+.btn-default:active, .btn-default.active {
+  background-color: black;
+  color: white;
+}
+
+.btn-default:active:focus {
+  color: white;
+  background-color: black;
+}
+/*BUTTONS*/
+
+/*FORM*/
+.form-control {
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border-color: #F39C12;
+  box-shadow: none;
+}
+/*FORM*/
+
+/*LOGIN MODAL*/
+.modal-content {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.well {
+  background-image: none;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  background-color: white;
+  box-shadow: none;
+  padding: 0;
+}
+
+.login-button-width {
+  width: 50%;
+}
+
+.fb-button {
+  background-color: #4267b2;
+  margin-bottom: 5px;
+}
+
+.fb-button:hover {
+  background-color: #365899;
+}
+
+.p-margin {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+/*LOGIN MODAL*/
+
+/*TOP BAR*/
+.top-bar-padding {
+  padding: 20px;
+  background-color: #374459;
+}
+
+.top-bar-logo {
+  width: 40%;
+  height: 40%;
+}
+
+.top-bar-logo-center {
+  text-align: -webkit-center;
+}
+/*TOP BAR*/
+
+/*MAIN GRID*/
+.main-grid-padding {
+  padding: 0;
+}
+/*MAIN GRID*/
+
+/*SEARCH REMEMBER*/
+.image-size {
+  width: 50%;
+  height: 50%;
+}
+
+.center-image {
+  text-align: -webkit-center;
+  box-shadow: 0 1px 8px -1px rgba(52, 65, 108, 0.25)
+}
+/*SEARCH REMEMBER*/
+

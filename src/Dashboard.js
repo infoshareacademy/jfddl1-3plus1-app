@@ -1,10 +1,14 @@
 import React from 'react'
-import FavouriteBrands from "./FavouriteBrands";
+import LastAddedFavoriteList from "./LastAddedFavoriteList";
+import MainSearch from "./MainSearch"
 
 class Dashboard extends React.Component {
     render() {
         return (
-            <FavouriteBrands/>
+            <div>
+                <MainSearch />
+                <LastAddedFavoriteList />
+            </div>
         )
     }
 }

@@ -2,7 +2,6 @@ import React from 'react'
 
 import {Table, Button, Glyphicon} from 'react-bootstrap'
 
-
 class ProductList extends React.Component {
 
 
@@ -10,16 +9,16 @@ class ProductList extends React.Component {
     super(props);
 
     this.state = {
-      products: []
+      brands: []
     };
 
     fetch(
-      process.env.PUBLIC_URL + '/data/products.json'
+      process.env.PUBLIC_URL + '/data/brands.json'
     ).then(
       response => response.json()
     ).then(
-      products => this.setState({
-        products: products
+      brands => this.setState({
+        brands: brands.data
       })
     )
   }
@@ -33,9 +32,9 @@ class ProductList extends React.Component {
           <Table striped bordered condensed hover>
             <thead>
               <tr>
-                <th width={50}>number of item</th>
+                <th width={50}>id</th>
                 <th>Photo</th>
-                <th>Description</th>
+                <th>name_clear</th>
                 <th>Price</th>
                 <th>Add to favourites</th>
                 <th>Basket</th>
@@ -44,15 +43,15 @@ class ProductList extends React.Component {
 
             <tbody>
             {
-              this.state.products.map(
-                product => (
+              this.state.brands.map(
+                brand => (
                   <tr>
-                      <td>{product.id}</td>
-                      <td><img className="img-responsive" width={250} height={150} src={process.env.PUBLIC_URL + '/images/'+product.image} /> </td>
-                      <td>{product.name}</td>
-                      <td>{product.city}</td>
+                      <td>{brand.id}</td>
+                      <td><img className="img-responsive" width={80} height={50} src={process.env.PUBLIC_URL + '/images/'+brand.has_image} /> </td>
+                      <td>{brand.name_clear}</td>
+                      <td>CENA</td>
                       <td><Button><Glyphicon glyph="star" color="red" /> Add</Button></td>
-                      <td><Button><Glyphicon glyph="shopping-cart" color="red" /> Add to Basket</Button></td>
+                      <td><Button><Glyphicon glyph="shopping-cart" color="red" /> Add to the Basket</Button></td>
                   </tr>
                 )
               )

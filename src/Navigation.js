@@ -7,56 +7,57 @@ import {
   Grid,
   Col,
   Row,
-  Nav,
-  Navbar,
-  NavItem
+  Glyphicon
 } from 'react-bootstrap'
-import {
-  IndexLinkContainer,
-  LinkContainer
-} from 'react-router-bootstrap'
 
 import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
+import TopBar from './TopBar'
+import BurgerMenuWrapper from './BurgerMenuWrapper'
+import YourFavoriteList from './YourFavoriteList'
+import UserPanel from './UserPanel'
+import ProductWindow from './ProductWindow.js'
 
-const Navigation = () => (
-  <Router>
-    <Grid fluid>
-      <Row>
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">3plus1 project</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
+const links = [
+    { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
+    { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
+    { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
+    { path: '/ProductWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
+]
 
-            <IndexLinkContainer to="/dashboard">
-              <NavItem href="#">Dashboard</NavItem>
-            </IndexLinkContainer>
-            <LinkContainer to="/productList">
-              <NavItem href="#">Product list</NavItem>
-            </LinkContainer>
+class Navigation extends React.Component {
 
-          </Nav>
-          <Nav pullRight>
-            <LinkContainer to="#">
-              <NavItem href="#">Zaloguj się</NavItem>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <Route path="/productList" component={ProductList}/>
-          <Route path="/dashboard" component={Dashboard}/>
+    state = {
+        sidebarOpen: false
+    }
 
-        </Col>
-      </Row>
-    </Grid>
-  </Router>
-);
+    toggleSidebar = (shouldBecomeOpen) => this.setState({
+        sidebarOpen: shouldBecomeOpen
+    })
+
+    render = () => (
+        <Router>
+          <BurgerMenuWrapper
+              isOpen={this.state.sidebarOpen}
+              toggleSidebar={this.toggleSidebar}
+              onStateChange={(state) => this.toggleSidebar(state.isOpen)}
+              links={links}
+          >
+            <Grid fluid className="main-grid-padding">
+              <TopBar toggleSidebar={this.toggleSidebar}/>
+              <Row>
+                <Col md={12}>
+                  <Route path="/dashboard" component={Dashboard}/>
+                  <Route path="/ProductWindow" component={ProductWindow}/>
+                  <Route path="/favoriteList" component={YourFavoriteList}/>
+                  <Route path="/userPanel" component={UserPanel}/>
+
+                </Col>
+              </Row>
+            </Grid>
+          </BurgerMenuWrapper>
+        </Router>
+    )
+}
+
 export default Navigation;
