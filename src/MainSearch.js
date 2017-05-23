@@ -20,6 +20,8 @@ const getOptions = function (input, callback) {
   }, 500);
 };
 
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru/";
+
 class MainSearch extends React.Component {
   state = {
     brands: [],
@@ -32,15 +34,28 @@ class MainSearch extends React.Component {
   }
 
   componentWillMount() {
+    console.log('####', API_URL);
     fetch(
-      process.env.PUBLIC_URL + '/data/brands/brands.json'
-    ).then(
-      response => response.json()
-    ).then(
-      brands => this.setState({
-        brands: brands
-      })
-    )
+      API_URL+"api/v2/"
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      return JSON.parse(data.body).data;
+    }).then((data) => {
+      console.log('DATA IS FETCHED - ', data);
+      data = data.filter((el, index) => {
+        if(index<100){
+          return true;
+        }else{
+          return false;
+        }
+      });
+      this.setState({
+        brands: data
+      });
+    }).catch((error) => {
+      console.log('ERROR FETCHING DATA - ', error);
+    });
   }
 
   handleBrandSelect = (data) => {
