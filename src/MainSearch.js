@@ -20,7 +20,7 @@ const getOptions = function (input, callback) {
   }, 500);
 };
 
-const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru/";
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
 
 class MainSearch extends React.Component {
   state = {
@@ -34,19 +34,19 @@ class MainSearch extends React.Component {
   }
 
   componentWillMount() {
-    console.log('####', API_URL);
+    let url = API_URL + "/api/v2/";
     fetch(
-      API_URL+"api/v2/"
+      url
     ).then((response) => {
       return response.json();
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-      console.log('DATA IS FETCHED - ', data);
+      console.log('BRANDS ARE FETCHED - ', data);
       data = data.filter((el, index) => {
-        if(index<100){
+        if (index < 100) {
           return true;
-        }else{
+        } else {
           return false;
         }
       });
@@ -60,20 +60,27 @@ class MainSearch extends React.Component {
 
   handleBrandSelect = (data) => {
     const link = data.value
-
     this.setState({
       selectedBrand: link
-    }, () => {
-      fetch(
-        link
-      ).then(
-        response => response.json()
-      ).then(
-        models => this.setState({
-          models: models
+    }, this.handleBrandSelectCallback(link));
+  }
+
+  handleBrandSelectCallback = (link) => {
+    let url = API_URL + link;
+    console.log(url);
+    fetch(
+      url
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      return JSON.parse(data.body).data;
+    }).then((data) => {
+        console.log('BRANDS ARE FETCHED - ', data);
+        this.setState({
+          models: data
         })
-      )
-    })
+      }
+    )
   }
 
   handleModelSelect = (data) => {
