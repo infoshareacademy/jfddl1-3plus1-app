@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button, Grid, Row, Col, Table} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import { Button, Grid, Row, Col, Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import * as toastr from 'toastr'
@@ -9,10 +9,10 @@ const getOptions = function (input, callback) {
   setTimeout(function () {
     callback(null, {
       options: [
-        {value: 'Opel', label: 'Opel'},           //TU WSTAWIAM PETLE PO MARCE
-        {value: 'Audi', label: 'Audi'},
-        {value: 'Mercedes', label: 'Mercedes'},
-        {value: 'Rover', label: 'Rover'}
+        { value: 'Opel', label: 'Opel' },           //TU WSTAWIAM PETLE PO MARCE
+        { value: 'Audi', label: 'Audi' },
+        { value: 'Mercedes', label: 'Mercedes' },
+        { value: 'Rover', label: 'Rover' }
       ],
       // CAREFUL! Only set this to true when there are no more options,
       // or more specific queries will not be sent to the server.
@@ -87,16 +87,16 @@ class MainSearch extends React.Component {
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-        if (data.length !== 0) {
-          console.log('MODELS ARE FETCHED - ', data);
-          this.setState({
-            models: data
-          })
-        } else {
-          this.handleNoItemError()
-        }
+      if (data.length !== 0) {
+        console.log('MODELS ARE FETCHED - ', data);
+        this.setState({
+          models: data
+        })
+      } else {
+        this.handleNoItemError()
       }
-    )
+    }
+      )
   }
 
   handleModelSelect = (data) => {
@@ -115,19 +115,17 @@ class MainSearch extends React.Component {
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-        if(data.length !== 0)
-        {
-          console.log('TYPES ARE FETCHED - ', data);
-          this.setState({
-            types: data
-          });
-        }
-        else
-        {
-          this.handleNoItemError();
-        }
+      if (data.length !== 0) {
+        console.log('TYPES ARE FETCHED - ', data);
+        this.setState({
+          types: data
+        });
       }
-    )
+      else {
+        this.handleNoItemError();
+      }
+    }
+      )
   }
 
   handleTypeSelect = (data) => {
@@ -146,26 +144,65 @@ class MainSearch extends React.Component {
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-        if(data.length !== 0)
-        {
-          console.log('CATEGORIES ARE FETCHED - ', data);
-          this.setState({
-            categories: data
-          });
-        }
-        else
-        {
-          this.handleNoItemError();
-        }
+      if (data.length !== 0) {
+        console.log('CATEGORIES ARE FETCHED - ', data);
+        this.setState({
+          categories: data
+        });
       }
-    )
+      else {
+        this.handleNoItemError();
+      }
+    }
+      )
+  }
+
+  handleCategorySelect = (data) => {
+    const link = data.value
+    this.setState({
+      selectedCategory: link
+    }, this.handleCategorySelectCallback(link));
+  }
+
+  handleCategorySelectCallback = (link) => {
+    let url = API_URL + link;
+    fetch(
+      url
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      return JSON.parse(data.body).data;
+    }).then((data) => {
+      if (data.length !== 0) {
+        console.log('SUBCATEGORIES ARE FETCHED - ', data);
+        this.setState({
+          subcategories: data
+        });
+      }
+      else {
+        this.handleNoItemError();
+      }
+    }
+      )
+  }
+
+  handleSubcategorySelect = (data) => {
+    const link = data.value
+    this.setState({
+      selectedSubcategory: link
+    }, this.handleSubcategorySelectCallback(link));
+  }
+
+  handleSubcategorySelectCallback = (link) => {
+    let url = API_URL + link;
+    console.log(url);
   }
 
   handleNoItemError = () => {
     toastr.error('Brak danych dla wybranej pozycji!');
   }
 
-  addAlert () {
+  addAlert() {
     this.refs.container.success(
       "Welcome welcome welcome!!",
       "You are now home my friend. Welcome home my friend.", {
@@ -208,7 +245,7 @@ class MainSearch extends React.Component {
               value={this.state.selectedBrand}
               onChange={this.handleBrandSelect}
               options={this.state.brands.map(
-                brand => ({value: brand.link, label: brand.name})
+                brand => ({ value: brand.link, label: brand.name })
               )}
             />
           </Col>
@@ -221,7 +258,7 @@ class MainSearch extends React.Component {
               onChange={this.handleModelSelect}
               value={this.state.selectedModel}
               options={this.state.models.map(
-                model => ({value: model.link, label: model.name})
+                model => ({ value: model.link, label: model.name })
               )}
             />
 
@@ -235,7 +272,7 @@ class MainSearch extends React.Component {
               onChange={this.handleTypeSelect}
               value={this.state.selectedType}
               options={this.state.types.map(
-                type => ({value: type.link, label: type.name})
+                type => ({ value: type.link, label: type.name })
               )}
             />
 
@@ -253,7 +290,7 @@ class MainSearch extends React.Component {
               onChange={this.handleCategorySelect}
               value={this.state.selectedCategory}
               options={this.state.categories.map(
-                category => ({value: category.link, label: category.name})
+                category => ({ value: category.link, label: category.name })
               )}
             />
 
@@ -267,7 +304,7 @@ class MainSearch extends React.Component {
               onChange={this.handleSubcategorySelect}
               value={this.state.selectedSubcategory}
               options={this.state.subcategories.map(
-                subcategory => ({value: subcategory.link, label: subcategory.name})
+                subcategory => ({ value: subcategory.link, label: subcategory.name })
               )}
             />
 
@@ -277,25 +314,25 @@ class MainSearch extends React.Component {
         <Row>
           <Table striped bordered condensed hover>
             <thead>
-            <tr>
-              <th width={50}>searched</th>
-            </tr>
+              <tr>
+                <th width={50}>searched</th>
+              </tr>
             </thead>
 
             <tbody>
-            {
-              this.state.parts.map(
-                part =>
-                  <tr>
-                    {/*<a href="">{part.name}</a>*/}
+              {
+                this.state.parts.map(
+                  part =>
+                    <tr>
+                      {/*<a href="">{part.name}</a>*/}
 
-                    {/*<td><Link to={'/ProductWindow/' + part.id}>{part.name}</Link></td>*/}
+                      {/*<td><Link to={'/ProductWindow/' + part.id}>{part.name}</Link></td>*/}
 
-                    <td><Link to={'/ProductWindow/Corsa/' + part.id}>{part.name}</Link></td>
+                      <td><Link to={'/ProductWindow/Corsa/' + part.id}>{part.name}</Link></td>
 
-                  </tr>
-              )
-            }
+                    </tr>
+                )
+              }
             </tbody>
           </Table>
 
