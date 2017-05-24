@@ -3,6 +3,8 @@ import {Button, Grid, Row, Col, Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import * as toastr from 'toastr'
+import {$} from 'jquery'
 
 const getOptions = function (input, callback) {
   setTimeout(function () {
@@ -34,8 +36,12 @@ class MainSearch extends React.Component {
   }
 
   componentWillMount() {
+    this.fetchBrands();
+  }
+
+  fetchBrands = () => {
     let url = API_URL + "/api/v2/";
-    fetch(
+    return fetch(
       url
     ).then((response) => {
       return response.json();
@@ -55,6 +61,9 @@ class MainSearch extends React.Component {
       });
     }).catch((error) => {
       console.log('ERROR FETCHING DATA - ', error);
+      setTimeout(() => {
+        this.fetchBrands()
+      }, 200);
     });
   }
 
@@ -75,10 +84,14 @@ class MainSearch extends React.Component {
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-        console.log('MODELS ARE FETCHED - ', data);
-        this.setState({
-          models: data
-        })
+        if (data.length !== 0) {
+          console.log('MODELS ARE FETCHED - ', data);
+          this.setState({
+            models: data
+          })
+        } else {
+          this.handleNoItemError()
+        }
       }
     )
   }
@@ -99,12 +112,34 @@ class MainSearch extends React.Component {
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-        console.log('TYPES ARE FETCHED - ', data);
-        this.setState({
-          types: data
-        })
+        if(data.length !== 0)
+        {
+          console.log('TYPES ARE FETCHED - ', data);
+          this.setState({
+            types: data
+          });
+        }
+        else
+        {
+          this.handleNoItemError();
+        }
       }
     )
+  }
+
+  handleNoItemError = () => {
+    alert('Brak danych dla wybranej pozycji!');
+    toastr.info('');
+  }
+
+  addAlert () {
+    this.refs.container.success(
+      "Welcome welcome welcome!!",
+      "You are now home my friend. Welcome home my friend.", {
+        timeOut: 30000,
+        extendedTimeOut: 10000
+      });
+    window.open("http://youtu.be/3SR75k7Oggg");
   }
 
   // handleModelSelect = (data) => {
@@ -129,6 +164,8 @@ class MainSearch extends React.Component {
   render() {
     return (
       <Grid>
+        <Row>
+        </Row>
         <Row>
           <h4 className="text-center">Wyszukiwarka</h4>
           <Col xs={4} className="text-center">
@@ -171,6 +208,10 @@ class MainSearch extends React.Component {
 
           </Col>
 
+
+        </Row>
+        <Row></Row>
+        <Row>
           <Table striped bordered condensed hover>
             <thead>
             <tr>
