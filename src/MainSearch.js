@@ -72,6 +72,11 @@ class MainSearch extends React.Component {
 
   handleBrandSelect = (data) => {
     const link = data.value
+    let selectedBrandObject = this.state.brands.filter((brand)=>{
+      if(brand.link === link) return true;
+    })[0];
+    if(selectedBrandObject.selectedBrandObject === false){};
+    console.log(selectedBrandObject);
     this.setState({
       selectedBrand: link
     }, this.handleBrandSelectCallback(link));
