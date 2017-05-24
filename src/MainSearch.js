@@ -75,7 +75,7 @@ class MainSearch extends React.Component {
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-        console.log('BRANDS ARE FETCHED - ', data);
+        console.log('MODELS ARE FETCHED - ', data);
         this.setState({
           models: data
         })
@@ -85,21 +85,45 @@ class MainSearch extends React.Component {
 
   handleModelSelect = (data) => {
     const link = data.value
-
     this.setState({
       selectedModel: link
-    }, () => {
-      fetch(
-        link
-      ).then(
-        response => response.json()
-      ).then(
-        parts => this.setState({
-          parts: parts
-        })
-      )
-    })
+    }, this.handleModelSelectCallback(link));
   }
+
+  handleModelSelectCallback = (link) => {
+    let url = API_URL + link;
+    fetch(
+      url
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      return JSON.parse(data.body).data;
+    }).then((data) => {
+        console.log('TYPES ARE FETCHED - ', data);
+        this.setState({
+          types: data
+        })
+      }
+    )
+  }
+
+  // handleModelSelect = (data) => {
+  //   const link = data.value
+  //
+  //   this.setState({
+  //     selectedModel: link
+  //   }, () => {
+  //     fetch(
+  //       link
+  //     ).then(
+  //       response => response.json()
+  //     ).then(
+  //       parts => this.setState({
+  //         parts: parts
+  //       })
+  //     )
+  //   })
+  // }
 
 
   render() {
@@ -107,7 +131,7 @@ class MainSearch extends React.Component {
       <Grid>
         <Row>
           <h4 className="text-center">Wyszukiwarka</h4>
-          <Col xs={6} className="text-center">
+          <Col xs={4} className="text-center">
             <h5>Marka</h5>
             <Select
               name="brand"
@@ -119,7 +143,7 @@ class MainSearch extends React.Component {
             />
           </Col>
 
-          <Col xs={6} className="text-center">
+          <Col xs={4} className="text-center">
             <h5>Model</h5>
 
             <Select
@@ -128,6 +152,20 @@ class MainSearch extends React.Component {
               value={this.state.selectedModel}
               options={this.state.models.map(
                 model => ({value: model.link, label: model.name})
+              )}
+            />
+
+          </Col>
+
+          <Col xs={4} className="text-center">
+            <h5>Typ</h5>
+
+            <Select
+              name="type"
+              onChange={this.handleTypeSelect}
+              value={this.state.selectedType}
+              options={this.state.types.map(
+                type => ({value: type.link, label: type.name})
               )}
             />
 
