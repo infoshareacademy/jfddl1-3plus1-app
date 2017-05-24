@@ -31,7 +31,11 @@ class MainSearch extends React.Component {
     selectedModel: null,
     types: [],
     selectedType: null,
-    parts: []
+    parts: [],
+    selectedCategories: null,
+    categories: [],
+    selectedSubcategory: null,
+    subcategories: []
   }
 
   componentWillMount() {
@@ -126,6 +130,37 @@ class MainSearch extends React.Component {
     )
   }
 
+  handleTypeSelect = (data) => {
+    const link = data.value
+    this.setState({
+      selectedType: link
+    }, this.handleTypeSelectCallback(link));
+  }
+
+  handleTypeSelectCallback = (link) => {
+    let url = API_URL + link;
+    fetch(
+      url
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      return JSON.parse(data.body).data;
+    }).then((data) => {
+        if(data.length !== 0)
+        {
+          console.log('CATEGORIES ARE FETCHED - ', data);
+          this.setState({
+            categories: data
+          });
+        }
+        else
+        {
+          this.handleNoItemError();
+        }
+      }
+    )
+  }
+
   handleNoItemError = () => {
     toastr.error('Brak danych dla wybranej pozycji!');
   }
@@ -208,7 +243,37 @@ class MainSearch extends React.Component {
 
 
         </Row>
-        <Row></Row>
+        <Row>
+
+          <Col xs={6} className="text-center">
+            <h5>Kategoria</h5>
+
+            <Select
+              name="category"
+              onChange={this.handleCategorySelect}
+              value={this.state.selectedCategory}
+              options={this.state.categories.map(
+                category => ({value: category.link, label: category.name})
+              )}
+            />
+
+          </Col>
+
+          <Col xs={6} className="text-center">
+            <h5>Subkateogria</h5>
+
+            <Select
+              name="subcategory"
+              onChange={this.handleSubcategorySelect}
+              value={this.state.selectedSubcategory}
+              options={this.state.subcategories.map(
+                subcategory => ({value: subcategory.link, label: subcategory.name})
+              )}
+            />
+
+          </Col>
+
+        </Row>
         <Row>
           <Table striped bordered condensed hover>
             <thead>
