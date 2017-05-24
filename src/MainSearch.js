@@ -72,14 +72,38 @@ class MainSearch extends React.Component {
 
   handleBrandSelect = (data) => {
     const link = data.value
-    let selectedBrandObject = this.state.brands.filter((brand)=>{
-      if(brand.link === link) return true;
-    })[0];
-    if(selectedBrandObject.selectedBrandObject === false){};
-    console.log(selectedBrandObject);
     this.setState({
       selectedBrand: link
-    }, this.handleBrandSelectCallback(link));
+    }, this.handleSelectCallback(link, 'brands', 'models'));
+  }
+
+  handleSelectCallback = (link, whatIsSelected, whatShouldBeDownloaded) => {
+    let selectedObject = this.state[whatIsSelected].filter((element) => {
+      if (element.link === link) return true;
+    })[0];
+    console.log(selectedObject);
+    if (selectedObject && selectedObject.has_children === false) { };
+
+    let url = API_URL + link;
+    console.log(url);
+    fetch(
+      url
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      return JSON.parse(data.body).data;
+    }).then((data) => {
+      if (data.length !== 0) {
+        console.log(whatShouldBeDownloaded + ' ARE FETCHED - ', data);
+        let newState = {};
+        newState[whatShouldBeDownloaded] = data;
+        console.log('newState',newState);
+        this.setState(newState);
+      } else {
+        this.handleNoItemError()
+      }
+    }
+      );
   }
 
   handleBrandSelectCallback = (link) => {
