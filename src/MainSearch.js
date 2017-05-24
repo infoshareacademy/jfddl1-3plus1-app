@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import * as toastr from 'toastr'
-import {$} from 'jquery'
 
 const getOptions = function (input, callback) {
   setTimeout(function () {
@@ -128,8 +127,7 @@ class MainSearch extends React.Component {
   }
 
   handleNoItemError = () => {
-    alert('Brak danych dla wybranej pozycji!');
-    toastr.info('');
+    toastr.error('Brak danych dla wybranej pozycji!');
   }
 
   addAlert () {
