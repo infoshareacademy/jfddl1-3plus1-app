@@ -54,11 +54,40 @@ class MainSearch extends React.Component {
     });
   };
 
-  handleBrandSelect = (data) => {
+  handleBrandSelect = (data, x) => {
+    console.log('#', data, x);
     const link = data.value;
     this.setState({
       selectedBrand: link
     }, this.handleSelectCallback(link, 'brands', 'models'));
+  };
+
+  handleModelSelect = (data) => {
+    const link = data.value;
+    this.setState({
+      selectedModel: link
+    }, this.handleSelectCallback(link, 'models', 'types'));
+  };
+
+  handleTypeSelect = (data) => {
+    const link = data.value;
+    this.setState({
+      selectedType: link
+    }, this.handleSelectCallback(link, 'types', 'categories'));
+  };
+
+  handleCategorySelect = (data) => {
+    const link = data.value;
+    this.setState({
+      selectedCategory: link
+    }, this.handleSelectCallback(link, 'categories', 'subcategories'));
+  };
+
+  handleSubcategorySelect = (data) => {
+    const link = data.value;
+    this.setState({
+      selectedSubcategory: link
+    }, this.handleSubcategorySelectCallback(link));
   };
 
   handleSelectCallback = (link, whatIsSelected, whatShouldBeDownloaded) => {
@@ -88,122 +117,6 @@ class MainSearch extends React.Component {
       }
     }
       );
-  };
-
-  // handleBrandSelectCallback = (link) => {
-  //   let url = API_URL + link;
-  //   console.log(url);
-  //   fetch(
-  //     url
-  //   ).then((response) => {
-  //     return response.json();
-  //   }).then((data) => {
-  //     return JSON.parse(data.body).data;
-  //   }).then((data) => {
-  //     if (data.length !== 0) {
-  //       console.log('MODELS ARE FETCHED - ', data);
-  //       this.setState({
-  //         models: data
-  //       })
-  //     } else {
-  //       this.handleNoItemError()
-  //     }
-  //   }
-  //     )
-  // };
-
-  handleModelSelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedModel: link
-    }, this.handleModelSelectCallback(link));
-  };
-
-  handleModelSelectCallback = (link) => {
-    let url = API_URL + link;
-    fetch(
-      url
-    ).then((response) => {
-      return response.json();
-    }).then((data) => {
-      return JSON.parse(data.body).data;
-    }).then((data) => {
-      if (data.length !== 0) {
-        console.log('TYPES ARE FETCHED - ', data);
-        this.setState({
-          types: data
-        });
-      }
-      else {
-        this.handleNoItemError();
-      }
-    }
-      )
-  };
-
-  handleTypeSelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedType: link
-    }, this.handleTypeSelectCallback(link));
-  };
-
-  handleTypeSelectCallback = (link) => {
-    let url = API_URL + link;
-    fetch(
-      url
-    ).then((response) => {
-      return response.json();
-    }).then((data) => {
-      return JSON.parse(data.body).data;
-    }).then((data) => {
-      if (data.length !== 0) {
-        console.log('CATEGORIES ARE FETCHED - ', data);
-        this.setState({
-          categories: data
-        });
-      }
-      else {
-        this.handleNoItemError();
-      }
-    }
-      )
-  };
-
-  handleCategorySelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedCategory: link
-    }, this.handleCategorySelectCallback(link));
-  };
-
-  handleCategorySelectCallback = (link) => {
-    let url = API_URL + link;
-    fetch(
-      url
-    ).then((response) => {
-      return response.json();
-    }).then((data) => {
-      return JSON.parse(data.body).data;
-    }).then((data) => {
-      if (data.length !== 0) {
-        console.log('SUBCATEGORIES ARE FETCHED - ', data);
-        this.setState({
-          subcategories: data
-        });
-      }
-      else {
-        this.handleNoItemError();
-      }
-    }
-      )
-  };
-
-  handleSubcategorySelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedSubcategory: link
-    }, this.handleSubcategorySelectCallback(link));
   };
 
   handleSubcategorySelectCallback = (link) => {
@@ -247,7 +160,7 @@ class MainSearch extends React.Component {
             <Select
               name="brand"
               value={this.state.selectedBrand}
-              onChange={this.handleBrandSelect}
+              onChange={(data) => {this.handleBrandSelect(data, 'brands')}}
               options={this.state.brands.map(
                 brand => ({ value: brand.link, label: brand.name })
               )}
