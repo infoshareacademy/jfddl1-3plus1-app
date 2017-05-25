@@ -10,7 +10,6 @@ import {
   Glyphicon
 } from 'react-bootstrap'
 
-import ProductList from './ProductList' //by RC
 import Dashboard from './Dashboard' // by Adrian
 import TopBar from './TopBar'
 import BurgerMenuWrapper from './BurgerMenuWrapper'
@@ -23,17 +22,17 @@ const links = [
     { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
     { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
     { path: '/ProductWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
-]
+];
 
 class Navigation extends React.Component {
 
     state = {
         sidebarOpen: false
-    }
+    };
 
     toggleSidebar = (shouldBecomeOpen) => this.setState({
         sidebarOpen: shouldBecomeOpen
-    })
+    });
 
     render = () => (
         <Router>

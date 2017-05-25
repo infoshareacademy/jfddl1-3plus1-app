@@ -1,23 +1,21 @@
 import React from 'react'
 import { FormGroup, FormControl, Button, Col } from 'react-bootstrap'
 
-const RegisterForm = React.createClass({
+class RegisterForm extends React.Component {
 
-    getInitialState() {
-        return {
-            value: '',
-        };
-    },
+    state = {
+      value: '',
+    };
 
     getValidationState() {
         const length = this.state.value.length;
         if (length > 10) return 'success';
         else if (length > 0) return 'error';
-    },
+    }
 
     handleChange(e) {
         this.setState({ value: e.target.value });
-    },
+    }
 
     render() {
         return (
@@ -61,6 +59,6 @@ const RegisterForm = React.createClass({
             </form>
         );
     }
-});
+}
 
 export default RegisterForm

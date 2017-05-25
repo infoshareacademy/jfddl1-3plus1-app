@@ -31,7 +31,7 @@ const styles = {
     bmOverlay: {
         background: 'rgba(0, 0, 0, 0.3)'
     }
-}
+};
 
 const BurgerMenuWrapper = (props) => (
     <div id="outer-container">
@@ -56,7 +56,7 @@ const BurgerMenuWrapper = (props) => (
             }
         </div>
     </div>
-)
+);
 
 export default BurgerMenuWrapper
 

@@ -13,9 +13,9 @@ class ProductWindow extends React.Component {
   };
 
   componentWillMount() {
-    const modelIdFromURL = this.props.match.params.model;
-    console.log('###', this.props.match.params);
-    const productIdFromURL = this.props.match.params.id;   //TODO
+    // const modelIdFromURL = this.props.match.params.model;
+    // console.log('###', this.props.match.params);
+    // const productIdFromURL = this.props.match.params.id;   //TODO
 
     fetch(
       // process.env.PUBLIC_URL + '/data/brands/opel/corsa/opel-corsa-1/index.json'    //TODO
@@ -71,7 +71,7 @@ class ProductWindow extends React.Component {
           <Col xs={6}>
             <tr>
               <h5>zdjęcie produktu</h5>
-              <img src={this.state.photo}/>
+              <img src={this.state.photo} alt="Product img"/>
             </tr>
 
           </Col>

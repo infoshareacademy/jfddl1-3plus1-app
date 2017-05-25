@@ -9,7 +9,7 @@ class TopBar extends React.Component {
         <Row className="top-bar-padding">
           <Col md={4}  className="text-left">
             <Button onClick={event => {
-              event.preventDefault()
+              event.preventDefault();
               this.props.toggleSidebar(true)
             }}>
               MENU

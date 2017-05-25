@@ -1,25 +1,9 @@
 import React from 'react'
-import { Button, Grid, Row, Col, Table } from 'react-bootstrap'
+import { Grid, Row, Col, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import * as toastr from 'toastr'
-
-const getOptions = function (input, callback) {
-  setTimeout(function () {
-    callback(null, {
-      options: [
-        { value: 'Opel', label: 'Opel' },           //TU WSTAWIAM PETLE PO MARCE
-        { value: 'Audi', label: 'Audi' },
-        { value: 'Mercedes', label: 'Mercedes' },
-        { value: 'Rover', label: 'Rover' }
-      ],
-      // CAREFUL! Only set this to true when there are no more options,
-      // or more specific queries will not be sent to the server.
-      complete: true
-    });
-  }, 500);
-};
 
 const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
 
@@ -36,7 +20,7 @@ class MainSearch extends React.Component {
     categories: [],
     selectedSubcategory: null,
     subcategories: []
-  }
+  };
 
   componentWillMount() {
     this.fetchBrands();
@@ -68,21 +52,21 @@ class MainSearch extends React.Component {
         this.fetchBrands()
       }, 200);
     });
-  }
+  };
 
   handleBrandSelect = (data) => {
-    const link = data.value
+    const link = data.value;
     this.setState({
       selectedBrand: link
     }, this.handleSelectCallback(link, 'brands', 'models'));
-  }
+  };
 
   handleSelectCallback = (link, whatIsSelected, whatShouldBeDownloaded) => {
     let selectedObject = this.state[whatIsSelected].filter((element) => {
       if (element.link === link) return true;
     })[0];
     console.log(selectedObject);
-    if (selectedObject && selectedObject.has_children === false) { };
+    if (selectedObject && selectedObject.has_children === false) { }
 
     let url = API_URL + link;
     console.log(url);
@@ -104,36 +88,36 @@ class MainSearch extends React.Component {
       }
     }
       );
-  }
+  };
 
-  handleBrandSelectCallback = (link) => {
-    let url = API_URL + link;
-    console.log(url);
-    fetch(
-      url
-    ).then((response) => {
-      return response.json();
-    }).then((data) => {
-      return JSON.parse(data.body).data;
-    }).then((data) => {
-      if (data.length !== 0) {
-        console.log('MODELS ARE FETCHED - ', data);
-        this.setState({
-          models: data
-        })
-      } else {
-        this.handleNoItemError()
-      }
-    }
-      )
-  }
+  // handleBrandSelectCallback = (link) => {
+  //   let url = API_URL + link;
+  //   console.log(url);
+  //   fetch(
+  //     url
+  //   ).then((response) => {
+  //     return response.json();
+  //   }).then((data) => {
+  //     return JSON.parse(data.body).data;
+  //   }).then((data) => {
+  //     if (data.length !== 0) {
+  //       console.log('MODELS ARE FETCHED - ', data);
+  //       this.setState({
+  //         models: data
+  //       })
+  //     } else {
+  //       this.handleNoItemError()
+  //     }
+  //   }
+  //     )
+  // };
 
   handleModelSelect = (data) => {
-    const link = data.value
+    const link = data.value;
     this.setState({
       selectedModel: link
     }, this.handleModelSelectCallback(link));
-  }
+  };
 
   handleModelSelectCallback = (link) => {
     let url = API_URL + link;
@@ -155,14 +139,14 @@ class MainSearch extends React.Component {
       }
     }
       )
-  }
+  };
 
   handleTypeSelect = (data) => {
-    const link = data.value
+    const link = data.value;
     this.setState({
       selectedType: link
     }, this.handleTypeSelectCallback(link));
-  }
+  };
 
   handleTypeSelectCallback = (link) => {
     let url = API_URL + link;
@@ -184,14 +168,14 @@ class MainSearch extends React.Component {
       }
     }
       )
-  }
+  };
 
   handleCategorySelect = (data) => {
-    const link = data.value
+    const link = data.value;
     this.setState({
       selectedCategory: link
     }, this.handleCategorySelectCallback(link));
-  }
+  };
 
   handleCategorySelectCallback = (link) => {
     let url = API_URL + link;
@@ -213,33 +197,24 @@ class MainSearch extends React.Component {
       }
     }
       )
-  }
+  };
 
   handleSubcategorySelect = (data) => {
-    const link = data.value
+    const link = data.value;
     this.setState({
       selectedSubcategory: link
     }, this.handleSubcategorySelectCallback(link));
-  }
+  };
 
   handleSubcategorySelectCallback = (link) => {
     let url = API_URL + link;
     console.log(url);
-  }
+  };
 
   handleNoItemError = () => {
     toastr.error('Brak danych dla wybranej pozycji!');
-  }
+  };
 
-  addAlert() {
-    this.refs.container.success(
-      "Welcome welcome welcome!!",
-      "You are now home my friend. Welcome home my friend.", {
-        timeOut: 30000,
-        extendedTimeOut: 10000
-      });
-    window.open("http://youtu.be/3SR75k7Oggg");
-  }
 
   // handleModelSelect = (data) => {
   //   const link = data.value

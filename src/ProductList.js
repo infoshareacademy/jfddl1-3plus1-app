@@ -58,7 +58,6 @@ class ProductList extends React.Component {
             }
             </tbody>
           </Table>
-
       </div>
     )
   }
