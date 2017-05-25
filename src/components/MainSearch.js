@@ -16,10 +16,12 @@ class MainSearch extends React.Component {
     types: [],
     selectedType: null,
     parts: [],
-    selectedCategories: null,
+    selectedCategorie: null,
     categories: [],
-    selectedSubcategory: null,
-    subcategories: []
+    selectedSubcategorie: null,
+    subcategories: [],
+    selectedSubsubcategorie: null,
+    subsubcategories: []
   };
 
   mapWhatIsSelectedSelectedToWhatShouldBeDownloaded = (whatIsSelected) => {
@@ -28,7 +30,8 @@ class MainSearch extends React.Component {
         brands: "models",
         models: 'types',
         types: "categories",
-        categories: "subcategories"
+        categories: "subcategories",
+        subcategories: "subsubcategories"
       }
     return mapObject[whatIsSelected];
   }
@@ -65,103 +68,50 @@ class MainSearch extends React.Component {
     });
   };
 
-  handleBrandSelect = (data) => {
+  handleSelect = (data) => {
     const link = data.value;
     const whatIsSelected = data.name;
     const magicHere = 'selected'+(whatIsSelected.substr(0,1).toUpperCase())+whatIsSelected.substr(1,whatIsSelected.length-2);
     let state = {};
     state[magicHere] = link;
-    console.log('##', state, whatIsSelected);
     this.setState(state, this.handleSelectCallback(link, whatIsSelected, this.mapWhatIsSelectedSelectedToWhatShouldBeDownloaded(whatIsSelected)));
   };
 
-  handleModelSelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedModel: link
-    }, this.handleSelectCallback(link, 'models', 'types'));
-  };
-
-  handleTypeSelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedType: link
-    }, this.handleSelectCallback(link, 'types', 'categories'));
-  };
-
-  handleCategorySelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedCategory: link
-    }, this.handleSelectCallback(link, 'categories', 'subcategories'));
-  };
-
-  handleSubcategorySelect = (data) => {
-    const link = data.value;
-    this.setState({
-      selectedSubcategory: link
-    }, this.handleSubcategorySelectCallback(link));
-  };
-
   handleSelectCallback = (link, whatIsSelected, whatShouldBeDownloaded) => {
-    console.log('###', this.state);
     let selectedObject = this.state[whatIsSelected].filter((element) => {
       if (element.link === link) return true;
     })[0];
-    console.log(selectedObject);
+    console.log('selectedObject', selectedObject);
     if (selectedObject && selectedObject.has_children === false) {
-    }
-
-    let url = API_URL + link;
-    console.log(url);
-    fetch(
-      url
-    ).then((response) => {
-      return response.json();
-    }).then((data) => {
-      return JSON.parse(data.body).data;
-    }).then((data) => {
-        if (data.length !== 0) {
-          console.log(whatShouldBeDownloaded + ' ARE FETCHED - ', data);
-          let newState = {};
-          newState[whatShouldBeDownloaded] = data;
-          console.log('newState', newState);
-          this.setState(newState);
-        } else {
-          this.handleNoItemError()
+      // TODO go to parts list view -> part viiew
+      console.log('NO CHILDREN', link)
+    }else {
+      let url = API_URL + link;
+      console.log(url);
+      fetch(
+        url
+      ).then((response) => {
+        return response.json();
+      }).then((data) => {
+        return JSON.parse(data.body).data;
+      }).then((data) => {
+          if (data.length !== 0) {
+            console.log(whatShouldBeDownloaded + ' ARE FETCHED - ', data);
+            let newState = {};
+            newState[whatShouldBeDownloaded] = data;
+            console.log('newState', newState);
+            this.setState(newState);
+          } else {
+            this.handleNoItemError()
+          }
         }
-      }
-    );
-  };
-
-  handleSubcategorySelectCallback = (link) => {
-    let url = API_URL + link;
-    console.log(url);
+      );
+    }
   };
 
   handleNoItemError = () => {
     toastr.error('Brak danych dla wybranej pozycji!');
   };
-
-
-  // handleModelSelect = (data) => {
-  //   const link = data.value
-  //
-  //   this.setState({
-  //     selectedModel: link
-  //   }, () => {
-  //     fetch(
-  //       link
-  //     ).then(
-  //       response => response.json()
-  //     ).then(
-  //       parts => this.setState({
-  //         parts: parts
-  //       })
-  //     )
-  //   })
-  // }
-
 
   render() {
     return (
@@ -175,7 +125,7 @@ class MainSearch extends React.Component {
             <Select
               name="brands"
               value={this.state.selectedBrand}
-              onChange={this.handleBrandSelect}
+              onChange={this.handleSelect}
               options={this.state.brands.map(
                 brand => ({value: brand.link, label: brand.name})
               )}
@@ -186,8 +136,8 @@ class MainSearch extends React.Component {
             <h5>Model</h5>
 
             <Select
-              name="model"
-              onChange={this.handleModelSelect}
+              name="models"
+              onChange={this.handleSelect}
               value={this.state.selectedModel}
               options={this.state.models.map(
                 model => ({value: model.link, label: model.name})
@@ -200,8 +150,8 @@ class MainSearch extends React.Component {
             <h5>Typ</h5>
 
             <Select
-              name="type"
-              onChange={this.handleTypeSelect}
+              name="types"
+              onChange={this.handleSelect}
               value={this.state.selectedType}
               options={this.state.types.map(
                 type => ({value: type.link, label: type.name})
@@ -214,13 +164,13 @@ class MainSearch extends React.Component {
         </Row>
         <Row>
 
-          <Col xs={6} className="text-center">
+          <Col xs={4} className="text-center">
             <h5>Kategoria</h5>
 
             <Select
-              name="category"
-              onChange={this.handleCategorySelect}
-              value={this.state.selectedCategory}
+              name="categories"
+              onChange={this.handleSelect}
+              value={this.state.selectedCategorie}
               options={this.state.categories.map(
                 category => ({value: category.link, label: category.name})
               )}
@@ -228,15 +178,29 @@ class MainSearch extends React.Component {
 
           </Col>
 
-          <Col xs={6} className="text-center">
+          <Col xs={4} className="text-center">
             <h5>Subkateogria</h5>
 
             <Select
-              name="subcategory"
-              onChange={this.handleSubcategorySelect}
-              value={this.state.selectedSubcategory}
+              name="subcategories"
+              onChange={this.handleSelect}
+              value={this.state.selectedSubcategorie}
               options={this.state.subcategories.map(
                 subcategory => ({value: subcategory.link, label: subcategory.name})
+              )}
+            />
+
+          </Col>
+
+          <Col xs={4} className="text-center">
+            <h5>Subkateogria</h5>
+
+            <Select
+              name="subsubcategories"
+              onChange={this.handleSelect}
+              value={this.state.selectedSubsubcategorie}
+              options={this.state.subsubcategories.map(
+                subsubcategory => ({value: subsubcategory.link, label: subsubcategory.name})
               )}
             />
 
