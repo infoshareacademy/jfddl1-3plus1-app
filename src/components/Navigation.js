@@ -39,9 +39,9 @@ class Navigation extends React.Component {
               <Row>
                 <Col md={12}>
                   <Route path="/dashboard" component={Dashboard}/>
-                  <Route path="/productWindow/:model/:id" component={ProductWindow}/>
-                  <Route path="/favoriteList" component={YourFavoriteList}/>
                   <Route path="/userPanel" component={UserPanel}/>
+                  <Route path="/favoriteList" component={YourFavoriteList}/>
+                  <Route path="/productWindow/:model/:id" component={ProductWindow}/>
 
                 </Col>
               </Row>
