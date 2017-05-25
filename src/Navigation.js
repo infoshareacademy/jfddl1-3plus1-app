@@ -1,18 +1,10 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom'
-import {
-  Grid,
-  Col,
-  Row,
-  Glyphicon
-} from 'react-bootstrap'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Grid, Col, Row, Glyphicon } from 'react-bootstrap'
 
-import Dashboard from './Dashboard' // by Adrian
 import TopBar from './TopBar'
 import BurgerMenuWrapper from './BurgerMenuWrapper'
+import Dashboard from './Dashboard'
 import YourFavoriteList from './YourFavoriteList'
 import UserPanel from './UserPanel'
 import ProductWindow from './ProductWindow.js'
@@ -21,7 +13,7 @@ const links = [
     { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
     { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
-    { path: '/ProductWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
+    { path: '/productWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
 ];
 
 class Navigation extends React.Component {
@@ -47,7 +39,7 @@ class Navigation extends React.Component {
               <Row>
                 <Col md={12}>
                   <Route path="/dashboard" component={Dashboard}/>
-                  <Route path="/ProductWindow/:model/:id" component={ProductWindow}/>
+                  <Route path="/productWindow/:model/:id" component={ProductWindow}/>
                   <Route path="/favoriteList" component={YourFavoriteList}/>
                   <Route path="/userPanel" component={UserPanel}/>
 

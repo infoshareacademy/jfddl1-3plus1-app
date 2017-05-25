@@ -1,6 +1,6 @@
 import React from 'react'
-import LogInModal from './LogInModal'
 import { Grid, Row, Col, Image, Button } from 'react-bootstrap'
+import LogInModal from './LogInModal'
 
 class TopBar extends React.Component {
   render() {

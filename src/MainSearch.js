@@ -1,8 +1,8 @@
 import React from 'react'
-import { Grid, Row, Col, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import { Grid, Row, Col, Table } from 'react-bootstrap'
 import * as toastr from 'toastr'
 
 const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
@@ -332,7 +332,7 @@ class MainSearch extends React.Component {
 
                       {/*<td><Link to={'/ProductWindow/' + part.id}>{part.name}</Link></td>*/}
 
-                      <td><Link to={'/ProductWindow/Corsa/' + part.id}>{part.name}</Link></td>
+                      <td><Link to={'/productWindow/Corsa/' + part.id}>{part.name}</Link></td>
 
                     </tr>
                 )

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Row, Col, Table} from 'react-bootstrap'
+
 class ProductWindow extends React.Component {
   state = {
     price: null,
@@ -111,4 +112,5 @@ class ProductWindow extends React.Component {
 //WSTAWIC INFORMACJE O PRODUKCIE
 
 }
+
 export  default ProductWindow

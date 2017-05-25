@@ -1,6 +1,6 @@
 import React from 'react'
-import { stack as BurgerMenu } from 'react-burger-menu'
 import { Link } from 'react-router-dom'
+import { stack as BurgerMenu } from 'react-burger-menu'
 
 const styles = {
     bmBurgerButton: {
