@@ -4,6 +4,7 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import {Grid, Row, Col, Table} from 'react-bootstrap'
 import * as toastr from 'toastr'
+import ProductList from './ProductList'
 
 const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
 
@@ -21,7 +22,9 @@ class MainSearch extends React.Component {
     selectedSubcategory: null,
     subcategorys: [],
     selectedSubsubcategory: null,
-    subsubcategorys: []
+    subsubcategorys: [],
+    productListVisible: false,
+    productListLink: null
   };
 
   mapWhatIsSelectedSelectedToWhatShouldBeDownloaded = (whatIsSelected) => {
@@ -71,7 +74,7 @@ class MainSearch extends React.Component {
   handleSelect = (data) => {
     const link = data.value;
     const whatIsSelected = data.name;
-    const magicHere = 'selected'+(whatIsSelected.substr(0,1).toUpperCase())+whatIsSelected.substr(1,whatIsSelected.length-2);
+    const magicHere = 'selected' + (whatIsSelected.substr(0, 1).toUpperCase()) + whatIsSelected.substr(1, whatIsSelected.length - 2);
     let state = {};
     state[magicHere] = link;
     this.setState(state, this.handleSelectCallback(link, whatIsSelected, this.mapWhatIsSelectedSelectedToWhatShouldBeDownloaded(whatIsSelected)));
@@ -83,9 +86,12 @@ class MainSearch extends React.Component {
     })[0];
     console.log('selectedObject', selectedObject);
     if (selectedObject && selectedObject.has_children === false) {
-      // TODO go to parts list view -> part viiew
-      console.log('NO CHILDREN', link)
-    }else {
+      console.log('NO CHILDREN', link);
+      this.setState({
+        productListVisible: true,
+        productListLink: link
+      });
+    } else {
       let url = API_URL + link;
       console.log(url);
       fetch(
@@ -125,7 +131,9 @@ class MainSearch extends React.Component {
             <Select
               name="brands"
               value={this.state.selectedBrand}
-              onChange={(value)=>{this.handleSelect({...value, name: 'brands'})}}
+              onChange={(value) => {
+                this.handleSelect({...value, name: 'brands'})
+              }}
               options={this.state.brands.map(
                 brand => ({value: brand.link, label: brand.name})
               )}
@@ -137,7 +145,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="models"
-              onChange={(value)=>{this.handleSelect({...value, name: 'models'})}}
+              onChange={(value) => {
+                this.handleSelect({...value, name: 'models'})
+              }}
               value={this.state.selectedModel}
               options={this.state.models.map(
                 model => ({value: model.link, label: model.name})
@@ -151,7 +161,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="types"
-              onChange={(value)=>{this.handleSelect({...value, name: 'types'})}}
+              onChange={(value) => {
+                this.handleSelect({...value, name: 'types'})
+              }}
               value={this.state.selectedType}
               options={this.state.types.map(
                 type => ({value: type.link, label: type.name})
@@ -169,7 +181,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="categories"
-              onChange={(value)=>{this.handleSelect({...value, name: 'categorys'})}}
+              onChange={(value) => {
+                this.handleSelect({...value, name: 'categorys'})
+              }}
               value={this.state.selectedCategory}
               options={this.state.categorys.map(
                 category => ({value: category.link, label: category.name})
@@ -183,7 +197,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="subcategories"
-              onChange={(value)=>{this.handleSelect({...value, name: 'subcategorys'})}}
+              onChange={(value) => {
+                this.handleSelect({...value, name: 'subcategorys'})
+              }}
               value={this.state.selectedSubcategory}
               options={this.state.subcategorys.map(
                 subcategory => ({value: subcategory.link, label: subcategory.name})
@@ -197,7 +213,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="subsubcategories"
-              onChange={(value)=>{this.handleSelect({...value, name: 'subsubcategorys'})}}
+              onChange={(value) => {
+                this.handleSelect({...value, name: 'subsubcategorys'})
+              }}
               value={this.state.selectedSubsubcategory}
               options={this.state.subsubcategorys.map(
                 subsubcategory => ({value: subsubcategory.link, label: subsubcategory.name})
@@ -208,29 +226,8 @@ class MainSearch extends React.Component {
 
         </Row>
         <Row>
-          <Table striped bordered condensed hover>
-            <thead>
-            <tr>
-              <th width={50}>searched</th>
-            </tr>
-            </thead>
 
-            <tbody>
-            {
-              this.state.parts.map(
-                part =>
-                  <tr>
-                    {/*<a href="">{part.name}</a>*/}
-
-                    {/*<td><Link to={'/ProductWindow/' + part.id}>{part.name}</Link></td>*/}
-
-                    <td><Link to={'/productWindow/Corsa/' + part.id}>{part.name}</Link></td>
-
-                  </tr>
-              )
-            }
-            </tbody>
-          </Table>
+          <ProductList link={this.state.productListLink}/>
 
         </Row>
       </Grid>

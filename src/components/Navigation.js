@@ -38,11 +38,11 @@ class Navigation extends React.Component {
               <TopBar toggleSidebar={this.toggleSidebar}/>
               <Row>
                 <Col md={12}>
+                  <Route path="/" component={Dashboard}/>
                   <Route path="/dashboard" component={Dashboard}/>
                   <Route path="/userPanel" component={UserPanel}/>
                   <Route path="/favoriteList" component={YourFavoriteList}/>
-                  <Route path="/productWindow/:model/:id" component={ProductWindow}/>
-
+                  <Route path="/productWindow/:link" component={ProductWindow}/>
                 </Col>
               </Row>
             </Grid>

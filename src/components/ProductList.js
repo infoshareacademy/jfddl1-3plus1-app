@@ -1,62 +1,41 @@
 import React from 'react'
 import {Table, Button, Glyphicon} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
 
 class ProductList extends React.Component {
+  state = {
+    list: []
+  };
 
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      brands: []
-    };
-
-    fetch(
-      process.env.PUBLIC_URL + '/data/brands.json'
-    ).then(
-      response => response.json()
-    ).then(
-      brands => this.setState({
-        brands: brands.data
-      })
-    )
-  }
-
-
-  render() {         //to sie zawsze powtarza
+  render() {
+    if (this.props.link && this.state.list.length === 0) {
+      fetch(
+        API_URL + this.props.link
+      ).then((response) => {
+        return response.json();
+      }).then((data) => {
+        return JSON.parse(data.body).data;
+      }).then((data) => {
+          console.log('LIST FETCHED - ', data);
+          this.setState({
+            list: data
+          });
+        }
+      );
+    }
     return (
       <div>
-        <h1>Product List</h1>
-
-          <Table striped bordered condensed hover>
-            <thead>
-              <tr>
-                <th width={50}>id</th>
-                <th>Photo</th>
-                <th>name_clear</th>
-                <th>Price</th>
-                <th>Add to favourites</th>
-                <th>Basket</th>
-              </tr>
-            </thead>
-
-            <tbody>
-            {
-              this.state.brands.map(
-                brand => (
-                  <tr>
-                      <td>{brand.id}</td>
-                      <td><img className="img-responsive" width={80} height={50} src={process.env.PUBLIC_URL + '/images/'+brand.has_image} /> </td>
-                      <td>{brand.name_clear}</td>
-                      <td>CENA</td>
-                      <td><Button><Glyphicon glyph="star" color="red" /> Add</Button></td>
-                      <td><Button><Glyphicon glyph="shopping-cart" color="red" /> Add to the Basket</Button></td>
-                  </tr>
-                )
-              )
-            }
-            </tbody>
-          </Table>
+        {this.state.list.map((part) => {
+          const path = 'productWindow/'+encodeURIComponent(part.link);
+          return <div key={part.link}>
+            <Link to={path}>
+              {part.brand}
+              {part.name}
+            </Link>
+          </div>
+        })}
       </div>
     )
   }
