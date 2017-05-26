@@ -16,12 +16,12 @@ class MainSearch extends React.Component {
     types: [],
     selectedType: null,
     parts: [],
-    selectedCategorie: null,
-    categories: [],
-    selectedSubcategorie: null,
-    subcategories: [],
-    selectedSubsubcategorie: null,
-    subsubcategories: []
+    selectedCategory: null,
+    categorys: [],
+    selectedSubcategory: null,
+    subcategorys: [],
+    selectedSubsubcategory: null,
+    subsubcategorys: []
   };
 
   mapWhatIsSelectedSelectedToWhatShouldBeDownloaded = (whatIsSelected) => {
@@ -29,9 +29,9 @@ class MainSearch extends React.Component {
       {
         brands: "models",
         models: 'types',
-        types: "categories",
-        categories: "subcategories",
-        subcategories: "subsubcategories"
+        types: "categorys",
+        categorys: "subcategorys",
+        subcategorys: "subsubcategorys"
       }
     return mapObject[whatIsSelected];
   }
@@ -125,7 +125,7 @@ class MainSearch extends React.Component {
             <Select
               name="brands"
               value={this.state.selectedBrand}
-              onChange={this.handleSelect}
+              onChange={(value)=>{this.handleSelect({...value, name: 'brands'})}}
               options={this.state.brands.map(
                 brand => ({value: brand.link, label: brand.name})
               )}
@@ -137,7 +137,7 @@ class MainSearch extends React.Component {
 
             <Select
               name="models"
-              onChange={this.handleSelect}
+              onChange={(value)=>{this.handleSelect({...value, name: 'models'})}}
               value={this.state.selectedModel}
               options={this.state.models.map(
                 model => ({value: model.link, label: model.name})
@@ -151,7 +151,7 @@ class MainSearch extends React.Component {
 
             <Select
               name="types"
-              onChange={this.handleSelect}
+              onChange={(value)=>{this.handleSelect({...value, name: 'types'})}}
               value={this.state.selectedType}
               options={this.state.types.map(
                 type => ({value: type.link, label: type.name})
@@ -169,9 +169,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="categories"
-              onChange={this.handleSelect}
-              value={this.state.selectedCategorie}
-              options={this.state.categories.map(
+              onChange={(value)=>{this.handleSelect({...value, name: 'categorys'})}}
+              value={this.state.selectedCategory}
+              options={this.state.categorys.map(
                 category => ({value: category.link, label: category.name})
               )}
             />
@@ -183,9 +183,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="subcategories"
-              onChange={this.handleSelect}
-              value={this.state.selectedSubcategorie}
-              options={this.state.subcategories.map(
+              onChange={(value)=>{this.handleSelect({...value, name: 'subcategorys'})}}
+              value={this.state.selectedSubcategory}
+              options={this.state.subcategorys.map(
                 subcategory => ({value: subcategory.link, label: subcategory.name})
               )}
             />
@@ -197,9 +197,9 @@ class MainSearch extends React.Component {
 
             <Select
               name="subsubcategories"
-              onChange={this.handleSelect}
-              value={this.state.selectedSubsubcategorie}
-              options={this.state.subsubcategories.map(
+              onChange={(value)=>{this.handleSelect({...value, name: 'subsubcategorys'})}}
+              value={this.state.selectedSubsubcategory}
+              options={this.state.subsubcategorys.map(
                 subsubcategory => ({value: subsubcategory.link, label: subsubcategory.name})
               )}
             />
