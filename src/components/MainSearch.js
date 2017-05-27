@@ -23,6 +23,8 @@ class MainSearch extends React.Component {
     subcategorys: [],
     selectedSubsubcategory: null,
     subsubcategorys: [],
+    selectedSubsubsubcategory: null,
+    subsubsubcategorys: [],
     productListVisible: false,
     productListLink: null
   };
@@ -34,10 +36,11 @@ class MainSearch extends React.Component {
         models: 'types',
         types: "categorys",
         categorys: "subcategorys",
-        subcategorys: "subsubcategorys"
-      }
+        subcategorys: "subsubcategorys",
+        subsubcategorys: "subsubsubcategorys"
+      };
     return mapObject[whatIsSelected];
-  }
+  };
 
   componentWillMount() {
     this.fetchBrands();
@@ -220,6 +223,22 @@ class MainSearch extends React.Component {
               options={this.state.subsubcategorys.map(
                 subsubcategory => ({value: subsubcategory.link, label: subsubcategory.name})
               )}
+            />
+
+          </Col>
+
+          <Col xs={4} className="text-center">
+            <h5>Subkateogria</h5>
+
+            <Select
+                name="subsubsubcategories"
+                onChange={(value) => {
+                    this.handleSelect({...value, name: 'subsubsubcategorys'})
+                }}
+                value={this.state.selectedSubsubsubcategory}
+                options={this.state.subsubsubcategorys.map(
+                    subsubsubcategory => ({value: subsubsubcategory.link, label: subsubsubcategory.name})
+                )}
             />
 
           </Col>
