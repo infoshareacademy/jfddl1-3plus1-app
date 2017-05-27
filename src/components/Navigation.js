@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Grid, Col, Row, Glyphicon } from 'react-bootstrap'
 
 import TopBar from './TopBar'
+import Footer from './Footer'
 import BurgerMenuWrapper from './BurgerMenuWrapper'
 import Dashboard from './Dashboard'
 import YourFavoriteList from './YourFavoriteList'
@@ -38,13 +39,14 @@ class Navigation extends React.Component {
               <TopBar toggleSidebar={this.toggleSidebar}/>
               <Row>
                 <Col md={12}>
-                  <Route path="/" component={Dashboard}/>
+                  <Route path="/#" component={Dashboard}/>
                   <Route path="/dashboard" component={Dashboard}/>
                   <Route path="/userPanel" component={UserPanel}/>
                   <Route path="/favoriteList" component={YourFavoriteList}/>
                   <Route path="/productWindow/:link" component={ProductWindow}/>
                 </Col>
               </Row>
+              <Footer/>
             </Grid>
           </BurgerMenuWrapper>
         </Router>
