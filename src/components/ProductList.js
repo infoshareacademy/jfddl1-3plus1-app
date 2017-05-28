@@ -46,22 +46,26 @@ class ProductList extends React.Component {
       <th>Producent części</th>
       <th>Nazwa części</th>
       <th>Numer katalogowy</th>
+      <th>Widok części</th>
       </tr>
       </thead>
       <tbody>
       {
-          this.state.list.map(
-          part => (
-              <tr
-                  key={part.link}
-              >
-                <td>{part.brand}</td>
-                <td>{part.name}</td>
-                <td>{part.number}</td>
-              </tr>
+          this.state.list.map((part) => {
+                  const path = 'productWindow/'+encodeURIComponent(part.link);
+                 return <tr key={part.link}>
+              <td>{part.brand}</td>
+              <td>{part.name}</td>
+              <td>{part.number}</td>
+              <Link to={path}>
+                <td>
+                  <Button>Przejdź do części</Button>
+                </td>
+              </Link>
+            </tr>
+          }
           )
-      )
-  }
+      }
   </tbody>
   </Table>
   </div>
