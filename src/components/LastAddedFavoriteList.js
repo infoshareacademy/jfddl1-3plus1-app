@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col, Image, Grid } from 'react-bootstrap'
+
 class LastAddedFavoriteList extends React.Component {
     render() {
         return (
@@ -41,4 +42,5 @@ class LastAddedFavoriteList extends React.Component {
         )
     }
 }
+
 export default LastAddedFavoriteList

@@ -26,19 +26,6 @@ class ProductList extends React.Component {
       );
     }
     return (
-      /*<div>
-        {this.state.list.map((part) => {
-          const path = 'productWindow/'+encodeURIComponent(part.link);
-          return <div key={part.link}>
-            <Link to={path}>
-              {part.brand}
-              {part.name}
-              {part.number}
-            </Link>
-          </div>
-        })}
-      </div>*/
-
       <div>
           <Table striped bordered condensed hover>
       <thead>

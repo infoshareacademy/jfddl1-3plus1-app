@@ -23,8 +23,8 @@ class Footer extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <p>Stworzone z <Glyphicon className="glyphicon-heart"></Glyphicon> przez 3plus1.</p>
-                    <p><Glyphicon className="glyphicon-copyright-mark"></Glyphicon>2017 Wszelkie prawa zastrzeżone.</p>
+                    <p>Stworzone z <Glyphicon className="glyphicon-heart" glyph=""></Glyphicon> przez 3plus1.</p>
+                    <p><Glyphicon className="glyphicon-copyright-mark" glyph=""></Glyphicon>2017 Wszelkie prawa zastrzeżone.</p>
                 </Row>
             </Grid>
         )

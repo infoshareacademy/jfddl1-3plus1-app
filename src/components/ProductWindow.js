@@ -8,8 +8,6 @@ class ProductWindow extends React.Component {
   };
 
   componentWillMount(){
-    /*alert(this.props.match.params.link);
-    alert(decodeURIComponent(this.props.match.params.link));*/
           fetch(
               API_URL + this.props.match.params.link
           ).then((response) => {
@@ -34,6 +32,7 @@ class ProductWindow extends React.Component {
                       <div>
                         <p>{this.state.stock.part.data.brand}</p>
                         <p>{this.state.stock.part.data.number}</p>
+                        <img src={this.state.stock.part.jpg[0]} alt="No data"/>
                       </div>
                 }
             </div>

@@ -93,7 +93,6 @@ body {
 .top-bar-padding {
   padding: 20px;
   background-color: #333333;
-;
 }
 
 .top-bar-logo {
@@ -135,5 +134,6 @@ body {
 .Select-control {
   border-radius: 0;
 }
+/*SELECT CONTROL*/
 
 
