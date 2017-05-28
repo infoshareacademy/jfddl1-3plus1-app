@@ -26,17 +26,45 @@ class ProductList extends React.Component {
       );
     }
     return (
-      <div>
+      /*<div>
         {this.state.list.map((part) => {
           const path = 'productWindow/'+encodeURIComponent(part.link);
           return <div key={part.link}>
             <Link to={path}>
               {part.brand}
               {part.name}
+              {part.number}
             </Link>
           </div>
         })}
-      </div>
+      </div>*/
+
+      <div>
+          <Table striped bordered condensed hover>
+      <thead>
+      <tr>
+      <th>Producent części</th>
+      <th>Nazwa części</th>
+      <th>Numer katalogowy</th>
+      </tr>
+      </thead>
+      <tbody>
+      {
+          this.state.list.map(
+          part => (
+              <tr
+                  key={part.link}
+              >
+                <td>{part.brand}</td>
+                <td>{part.name}</td>
+                <td>{part.number}</td>
+              </tr>
+          )
+      )
+  }
+  </tbody>
+  </Table>
+  </div>
     )
   }
 }
