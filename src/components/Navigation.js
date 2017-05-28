@@ -14,7 +14,7 @@ const links = [
     { path: '/', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
     { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
-    { path: '/productWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
+    { path: '/productWindow:link', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
 ];
 
 class Navigation extends React.Component {

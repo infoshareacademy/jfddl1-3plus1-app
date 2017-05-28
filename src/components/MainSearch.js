@@ -56,7 +56,7 @@ class MainSearch extends React.Component {
     }).then((data) => {
       console.log('BRANDS ARE FETCHED - ', data);
       data = data.filter((el, index) => {
-        if (index < 100) {
+        if (index < 500) {
           return true;
         } else {
           return false;
@@ -159,7 +159,7 @@ class MainSearch extends React.Component {
           </Col>
 
           <Col xs={4} className="text-center">
-            <h5>Typ</h5>
+            <h5>Typ pojazdu</h5>
 
             <Select
               name="types"
@@ -179,7 +179,7 @@ class MainSearch extends React.Component {
         <Row>
 
           <Col xs={4} className="text-center">
-            <h5>Kategoria</h5>
+            <h5>Kategoria części</h5>
 
             <Select
               name="categories"
@@ -195,7 +195,7 @@ class MainSearch extends React.Component {
           </Col>
 
           <Col xs={4} className="text-center">
-            <h5>Subkateogria</h5>
+            <h5>Rodzaj części</h5>
 
             <Select
               name="subcategories"
@@ -211,7 +211,7 @@ class MainSearch extends React.Component {
           </Col>
 
           <Col xs={4} className="text-center">
-            <h5>Sub sub kateogria</h5>
+            <h5>Typ części</h5>
 
             <Select
               name="subsubcategories"
@@ -227,7 +227,7 @@ class MainSearch extends React.Component {
           </Col>
 
           <Col xs={4} className="text-center">
-            <h5>Sub sub sub kateogria</h5>
+            <h5>Podtyp</h5>
 
             <Select
                 name="subsubsubcategories"
