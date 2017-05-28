@@ -23,18 +23,18 @@ class RegisterForm extends React.Component {
                 <div>
                     <h4 className="text-center">Formularz rejestracji</h4>
                 </div>
-                <hr/>
-                <Col md={6}>
+                <hr className="register-hr"/>
+                <Col md={6} className="change-padding-right">
                     <FormGroup>
                         <FormControl type="text" placeholder="Twój login"/>
                     </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={6} className="change-padding-left">
                     <FormGroup>
                         <FormControl type="email" placeholder="Twój e-mail"/>
                     </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={6} className="change-padding-right">
                     <FormGroup
                         controlId="formBasicText"
                         validationState={this.getValidationState()}
@@ -48,7 +48,7 @@ class RegisterForm extends React.Component {
                         <FormControl.Feedback />
                     </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={6} className="change-padding-left">
                     <FormGroup>
                         <FormControl type="text" placeholder="Potwierdź hasło"/>
                     </FormGroup>

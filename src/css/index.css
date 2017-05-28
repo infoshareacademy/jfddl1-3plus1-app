@@ -51,6 +51,14 @@ body {
   border-color: #F39C12;
   box-shadow: none;
 }
+
+.change-padding-right {
+  padding-right: 3px;
+}
+
+.change-padding-left {
+  padding-left: 3px;
+}
 /*FORM*/
 
 /*LOGIN MODAL*/
@@ -65,9 +73,18 @@ body {
   margin-bottom: 0;
   border: none;
   border-radius: 0;
-  background-color: white;
   box-shadow: none;
   padding: 0;
+  background-color: #ECEFF1;
+}
+
+.modal-body {
+  background-color: #ECEFF1;
+}
+
+.modal-header {
+  background-color: #333333;
+  color: white;
 }
 
 .login-button-width {
@@ -86,6 +103,32 @@ body {
 .p-margin {
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.register-link {
+  color: darkgray;
+}
+
+.register-link:hover {
+  color: #F39C12;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register-hr {
+  border-color: #f39c12;
+  border-width: 3px;
+  max-width: 50px;
+}
+
+.close {
+  color: darkgray;
+  text-shadow: none;
+}
+
+.close:hover {
+  color: #f39c12;
+
 }
 /*LOGIN MODAL*/
 
@@ -119,14 +162,13 @@ body {
 }
 .center-image {
   text-align: -webkit-center;
-  box-shadow: 0 1px 8px -1px rgba(52, 65, 108, 0.25);
-  background-color: white;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);  background-color: white;
   transition: box-shadow 0.2s ease;
   padding: 0;
   margin: 20px;
 }
 .item-body:hover {
-  box-shadow: 4px 4px 10px 1px rgba(52, 65, 108, 0.4);
+  -webkit-box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2), 0 10px 10px 0 rgba(0,0,0,0.14), 0 5px 3px -1px rgba(0,0,0,0.12);
 }
 /*LastAddedFavoriteList*/
 

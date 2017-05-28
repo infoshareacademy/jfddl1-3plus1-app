@@ -12,6 +12,7 @@ class LastAddedFavoriteList extends React.Component {
                         </h4>
                     </Col>
                 </Row>
+                <hr className="register-hr"/>
                 <Row>
                     <Col xs={6} md={3}>
                         <div className="center-image item-body">

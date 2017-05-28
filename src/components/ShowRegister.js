@@ -13,7 +13,7 @@ class ShowRegister extends React.Component {
     render() {
         return (
             <div className="text-center">
-                <a onClick={ ()=> this.setState({ open: !this.state.open })}>
+                <a className="register-link" onClick={ ()=> this.setState({ open: !this.state.open })}>
                     Nie masz konta? Zarejestruj się!
                 </a>
                 <Collapse in={this.state.open}>

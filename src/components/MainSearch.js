@@ -56,7 +56,7 @@ class MainSearch extends React.Component {
     }).then((data) => {
       console.log('BRANDS ARE FETCHED - ', data);
       data = data.filter((el, index) => {
-        if (index < 500) {
+        if (index < 400) {
           return true;
         } else {
           return false;
@@ -69,7 +69,7 @@ class MainSearch extends React.Component {
       console.log('ERROR FETCHING DATA - ', error);
       setTimeout(() => {
         this.fetchBrands()
-      }, 200);
+      }, 100);
     });
   };
 
@@ -127,7 +127,8 @@ class MainSearch extends React.Component {
         <Row>
         </Row>
         <Row>
-          <h4 className="text-center">Wyszukiwarka</h4>
+          <h4 className="text-center">Wyszukiwarka części</h4>
+          <hr className="register-hr"/>
           <Col xs={4} className="text-center">
             <h5>Marka</h5>
             <Select
@@ -226,7 +227,7 @@ class MainSearch extends React.Component {
 
           </Col>
 
-          <Col xs={4} className="text-center">
+          <Col xs={4} xsOffset={4} className="text-center">
             <h5>Podtyp</h5>
 
             <Select

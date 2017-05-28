@@ -5,12 +5,12 @@ class LoginForm extends React.Component {
     render() {
         return (
             <form>
-                <Col md={6}>
+                <Col md={6} className="change-padding-right">
                     <FormGroup>
                         <FormControl type="text" placeholder="Login"/>
                     </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={6} className="change-padding-left">
                     <FormGroup>
                         <FormControl type="email" placeholder="Hasło"/>
                     </FormGroup>
