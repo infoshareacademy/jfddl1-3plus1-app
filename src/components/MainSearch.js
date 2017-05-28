@@ -1,8 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import {Grid, Row, Col, Table} from 'react-bootstrap'
+import {Grid, Row, Col } from 'react-bootstrap'
 import * as toastr from 'toastr'
 import ProductList from './ProductList'
 
@@ -212,7 +211,7 @@ class MainSearch extends React.Component {
           </Col>
 
           <Col xs={4} className="text-center">
-            <h5>Subkateogria</h5>
+            <h5>Sub sub kateogria</h5>
 
             <Select
               name="subsubcategories"
@@ -228,7 +227,7 @@ class MainSearch extends React.Component {
           </Col>
 
           <Col xs={4} className="text-center">
-            <h5>Subkateogria</h5>
+            <h5>Sub sub sub kateogria</h5>
 
             <Select
                 name="subsubsubcategories"
@@ -244,7 +243,8 @@ class MainSearch extends React.Component {
           </Col>
 
         </Row>
-        <Row>
+        <Row className="text-center">
+          <h4>Wyszukane części:</h4>
 
           <ProductList link={this.state.productListLink}/>
 

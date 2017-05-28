@@ -11,7 +11,7 @@ import UserPanel from './UserPanel'
 import ProductWindow from './ProductWindow.js'
 
 const links = [
-    { path: '/dashboard', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
+    { path: '/', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
     { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
     { path: '/productWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
@@ -39,8 +39,7 @@ class Navigation extends React.Component {
               <TopBar toggleSidebar={this.toggleSidebar}/>
               <Row>
                 <Col md={12}>
-                  <Route path="/#" component={Dashboard}/>
-                  <Route path="/dashboard" component={Dashboard}/>
+                  <Route exact path="/" component={Dashboard}/>
                   <Route path="/userPanel" component={UserPanel}/>
                   <Route path="/favoriteList" component={YourFavoriteList}/>
                   <Route path="/productWindow/:link" component={ProductWindow}/>
