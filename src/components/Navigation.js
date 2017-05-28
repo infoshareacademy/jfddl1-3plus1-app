@@ -11,10 +11,10 @@ import UserPanel from './UserPanel'
 import ProductWindow from './ProductWindow.js'
 
 const links = [
-    { path: '/', label: <div><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
-    { path: '/userPanel', label: <div><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
-    { path: '/favoriteList', label: <div><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
-    { path: '/productWindow', label: <div><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
+    { path: '/', label: <div className="nav-item-color"><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
+    { path: '/userPanel', label: <div className="nav-item-color"><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
+    { path: '/favoriteList', label: <div className="nav-item-color"><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
+    { path: '/productWindow', label: <div className="nav-item-color"><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
 ];
 
 class Navigation extends React.Component {

@@ -178,4 +178,25 @@ body {
 }
 /*SELECT CONTROL*/
 
+/*NAV*/
+.nav-item-color {
+  color: #F39C12;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.nav-item-color:hover {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
+/*NAV*/
+
 
