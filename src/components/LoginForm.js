@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
             .then(() => {
                 console.log('Zalogowano');
                 toastr.success('Jesteś zalogowany!')
-            }).catch((e => toastr.error('Nie udało się zalogować, złe hasło lub email!')))
+            }).catch((e => toastr.error('Nie ma takiego użytkownika, sprawdź e-mail lub hasło!')))
     }
 
     emailChangeHandler = (e) => {

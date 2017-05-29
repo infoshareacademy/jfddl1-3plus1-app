@@ -1,6 +1,7 @@
 import React from 'react'
 import {FormGroup, FormControl, Button, Col} from 'react-bootstrap'
 import * as firebase from 'firebase'
+import * as toastr from 'toastr'
 
 
 class RegisterForm extends React.Component {
@@ -14,6 +15,7 @@ class RegisterForm extends React.Component {
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
                 console.log('Zarejestrowano');
+                toastr.success('Zarejestrowano! Możesz się teraz zalogować.')
             }).catch((e => console.log(e.message)))
     }
 
