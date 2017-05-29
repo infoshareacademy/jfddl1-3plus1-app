@@ -200,3 +200,13 @@ a:focus {
 /*NAV*/
 
 
+#toast-container > div {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#toast-container > div:hover {
+  box-shadow: 0;
+}
+
+
