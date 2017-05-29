@@ -3,56 +3,45 @@ import {FormGroup, FormControl, Button, Col} from 'react-bootstrap'
 import * as firebase from 'firebase'
 import * as toastr from 'toastr'
 
-
 class LoginForm extends React.Component {
     state = {
         email: '',
         password: ''
-    }
+    };
 
     loginHandler = (e) => {
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
                 console.log('Zalogowano');
-                toastr.success('Jesteś zalogowany!')
-            }).catch((e => toastr.error('Nie ma takiego użytkownika, sprawdź e-mail lub hasło!')))
-    }
+                toastr.success('Zalogowano!')
+            }).catch((e => toastr.error('Nie ma takiego użytkownika, niepoprawny email lub hasło!')))
+    };
 
     emailChangeHandler = (e) => {
         this.setState({
             email: e.target.value
         });
-    }
+    };
 
     passwordChangeHandler = (e) => {
         this.setState({
             password: e.target.value
         });
-    }
+    };
 
     render() {
-
-
-        // const txtEmail = document.getElementById('txtEmail');
-        // const txtPassword = document.getElementById('txtPassword');
-        // const btnLogin = document.getElementById('btnLogin');
-
-
-        // btnLogin.addEventListener('click',
-
-
         return (
             <form onSubmit={this.loginHandler}>
                 <Col md={6} className="change-padding-right">
                     <FormGroup>
-                        <FormControl required id="txtEmail" type="email" placeholder="Podaj email"
+                        <FormControl required id="txtEmail" type="email" placeholder="Email"
                                      onChange={this.emailChangeHandler} value={this.state.email}/>
                     </FormGroup>
                 </Col>
                 <Col md={6} className="change-padding-left">
                     <FormGroup>
-                        <FormControl required id="txtPassword" type="password" placeholder="Podaj hasło"
+                        <FormControl required id="txtPassword" type="password" placeholder="Hasło"
                                      onChange={this.passwordChangeHandler} value={this.state.password}/>
                     </FormGroup>
                 </Col>

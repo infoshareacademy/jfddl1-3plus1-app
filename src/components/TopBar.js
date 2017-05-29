@@ -10,9 +10,9 @@ class TopBar extends React.Component {
 
     render() {
         return (
-            <Grid fluid className="text-center">
+            <Grid fluid>
                 <Row className="top-bar-padding">
-                    <Col md={4} className="text-left">
+                    <Col md={4} className="text-left left-button-padding">
                         <Button onClick={event => {
                             event.preventDefault();
                             this.props.toggleSidebar(true)
@@ -24,7 +24,7 @@ class TopBar extends React.Component {
                         <Image className="top-bar-logo" responsive
                                src={process.env.PUBLIC_URL + '/images/logo_projekt.png'}/>
                     </Col>
-                    <Col md={4} className="text-right">
+                    <Col md={4} className="text-right right-button-padding">
                         {
                             (() => {
                                 if (!this.props.loggedIn) {

@@ -7,7 +7,6 @@ const avatarStyle ={
 
 class Footer extends React.Component {
     render () {
-
         return (
             <Grid className="text-center" style={avatarStyle}>
                 <Row>

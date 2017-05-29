@@ -23,7 +23,6 @@ class ProductWindow extends React.Component {
           );
       }
 
-
     render() {
         return (
             <div>

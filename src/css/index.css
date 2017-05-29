@@ -5,7 +5,6 @@ body {
   background-color: #ECEFF1;
 }
 
-
 /*BUTTONS*/
 .btn {
   border-radius: 0;
@@ -66,6 +65,7 @@ body {
   border-radius: 0;
   border: none;
   box-shadow: none;
+  background-color: inherit;
 }
 
 .well {
@@ -128,13 +128,12 @@ body {
 
 .close:hover {
   color: #f39c12;
-
 }
 /*LOGIN MODAL*/
 
 /*TOP BAR*/
 .top-bar-padding {
-  padding: 20px;
+  padding: 10px;
   background-color: #333333;
 }
 
@@ -145,6 +144,14 @@ body {
 
 .top-bar-logo-center {
   text-align: -webkit-center;
+}
+
+.left-button-padding {
+  padding: 15px;
+}
+
+.right-button-padding {
+  padding: 15px;
 }
 /*TOP BAR*/
 
@@ -160,6 +167,7 @@ body {
   height: 100%;
   padding: 0;
 }
+
 .center-image {
   text-align: -webkit-center;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);  background-color: white;
@@ -167,6 +175,7 @@ body {
   padding: 0;
   margin: 20px;
 }
+
 .item-body:hover {
   -webkit-box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2), 0 10px 10px 0 rgba(0,0,0,0.14), 0 5px 3px -1px rgba(0,0,0,0.12);
 }
@@ -199,7 +208,7 @@ a:focus {
 }
 /*NAV*/
 
-
+/*TOASTR*/
 #toast-container > div {
   border-radius: 0;
   box-shadow: none;
@@ -208,5 +217,4 @@ a:focus {
 #toast-container > div:hover {
   box-shadow: 0;
 }
-
-
+/*TOASTR*/

@@ -3,33 +3,33 @@ import {FormGroup, FormControl, Button, Col} from 'react-bootstrap'
 import * as firebase from 'firebase'
 import * as toastr from 'toastr'
 
-
 class RegisterForm extends React.Component {
     state = {
         email: '',
         password: ''
-    }
+    };
 
     loginHandler = (e) => {
         e.preventDefault();
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
                 console.log('Zarejestrowano');
-                toastr.success('Zarejestrowano! Możesz się teraz zalogować.')
-            }).catch((e => toastr.error('Podany adres e-mail jest już w bazie! Wybierz inny.')))
-    }
+                toastr.success('Zarejestrowano!')
+                toastr.success('Zalogowano!')
+            }).catch((e => toastr.error('Konto o podanym adresie email już istnieje! Wybierz inny.')))
+    };
 
     emailChangeHandler = (e) => {
         this.setState({
             email: e.target.value
         });
-    }
+    };
 
     passwordChangeHandler = (e) => {
         this.setState({
             password: e.target.value
         });
-    }
+    };
 
     render() {
         return (

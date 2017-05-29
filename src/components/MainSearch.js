@@ -145,7 +145,6 @@ class MainSearch extends React.Component {
 
           <Col xs={4} className="text-center">
             <h5>Model</h5>
-
             <Select
               name="models"
               onChange={(value) => {
@@ -156,12 +155,10 @@ class MainSearch extends React.Component {
                 model => ({value: model.link, label: model.name})
               )}
             />
-
           </Col>
 
           <Col xs={4} className="text-center">
             <h5>Typ pojazdu</h5>
-
             <Select
               name="types"
               onChange={(value) => {
@@ -172,16 +169,12 @@ class MainSearch extends React.Component {
                 type => ({value: type.link, label: type.name})
               )}
             />
-
           </Col>
-
 
         </Row>
         <Row>
-
           <Col xs={4} className="text-center">
             <h5>Kategoria części</h5>
-
             <Select
               name="categories"
               onChange={(value) => {
@@ -192,12 +185,10 @@ class MainSearch extends React.Component {
                 category => ({value: category.link, label: category.name})
               )}
             />
-
           </Col>
 
           <Col xs={4} className="text-center">
             <h5>Rodzaj części</h5>
-
             <Select
               name="subcategories"
               onChange={(value) => {
@@ -208,12 +199,10 @@ class MainSearch extends React.Component {
                 subcategory => ({value: subcategory.link, label: subcategory.name})
               )}
             />
-
           </Col>
 
           <Col xs={4} className="text-center">
             <h5>Typ części</h5>
-
             <Select
               name="subsubcategories"
               onChange={(value) => {
@@ -224,12 +213,10 @@ class MainSearch extends React.Component {
                 subsubcategory => ({value: subsubcategory.link, label: subsubcategory.name})
               )}
             />
-
           </Col>
 
           <Col xs={4} xsOffset={4} className="text-center">
             <h5>Podtyp</h5>
-
             <Select
                 name="subsubsubcategories"
                 onChange={(value) => {
@@ -240,7 +227,6 @@ class MainSearch extends React.Component {
                     subsubsubcategory => ({value: subsubsubcategory.link, label: subsubsubcategory.name})
                 )}
             />
-
           </Col>
 
         </Row>

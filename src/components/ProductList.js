@@ -25,6 +25,7 @@ class ProductList extends React.Component {
         }
       );
     }
+
     return (
       <div>
           <Table striped bordered condensed hover>
@@ -59,4 +60,5 @@ class ProductList extends React.Component {
     )
   }
 }
+
 export default ProductList

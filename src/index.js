@@ -9,8 +9,7 @@ import './css/index.css';
 
 import * as firebase from 'firebase'
 
-
-var config = {
+const config = {
     apiKey: "AIzaSyD8jZrCVAk9GMw6IEjFwJc3peaXkauiP5Q",
     authDomain: "plus1-app.firebaseapp.com",
     databaseURL: "https://plus1-app.firebaseio.com",
