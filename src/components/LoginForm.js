@@ -44,13 +44,13 @@ class LoginForm extends React.Component {
             <form onSubmit={this.loginHandler}>
                 <Col md={6} className="change-padding-right">
                     <FormGroup>
-                        <FormControl required id="txtEmail" type="email" placeholder="Email"
+                        <FormControl required id="txtEmail" type="email" placeholder="Podaj email"
                                      onChange={this.emailChangeHandler} value={this.state.email}/>
                     </FormGroup>
                 </Col>
                 <Col md={6} className="change-padding-left">
                     <FormGroup>
-                        <FormControl required id="txtPassword" type="password" placeholder="Pass"
+                        <FormControl required id="txtPassword" type="password" placeholder="Podaj hasło"
                                      onChange={this.passwordChangeHandler} value={this.state.password}/>
                     </FormGroup>
                 </Col>
