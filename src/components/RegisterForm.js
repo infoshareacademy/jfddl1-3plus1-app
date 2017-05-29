@@ -16,7 +16,7 @@ class RegisterForm extends React.Component {
             .then(() => {
                 console.log('Zarejestrowano');
                 toastr.success('Zarejestrowano! Możesz się teraz zalogować.')
-            }).catch((e => console.log(e.message)))
+            }).catch((e => toastr.error('Podany adres e-mail jest już w bazie! Wybierz inny.')))
     }
 
     emailChangeHandler = (e) => {
