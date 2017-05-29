@@ -23,6 +23,10 @@ class Navigation extends React.Component {
         sidebarOpen: false
     };
 
+    componentWillMount() {
+        console.log('Navigation Logged In', this.props.loggedIn);
+    }
+
     toggleSidebar = (shouldBecomeOpen) => this.setState({
         sidebarOpen: shouldBecomeOpen
     });
@@ -36,7 +40,7 @@ class Navigation extends React.Component {
               links={links}
           >
             <Grid fluid className="main-grid-padding">
-              <TopBar toggleSidebar={this.toggleSidebar}/>
+              <TopBar loggedIn={this.props.loggedIn} toggleSidebar={this.toggleSidebar}/>
               <Row>
                 <Col md={12}>
                   <Route exact path="/" component={Dashboard}/>
