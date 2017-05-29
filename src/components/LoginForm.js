@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
 
     loginHandler = (e) => {
         e.preventDefault();
-        firebase.auth().auth.signInWithEmailAndPassword(this.state.email, this.state.password)
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
                 console.log('Zalogowano');
             }).catch((e => console.log(e.message)))
