@@ -1,6 +1,7 @@
 import React from 'react'
 import {FormGroup, FormControl, Button, Col} from 'react-bootstrap'
 import * as firebase from 'firebase'
+import * as toastr from 'toastr'
 
 
 class LoginForm extends React.Component {
@@ -14,7 +15,8 @@ class LoginForm extends React.Component {
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
                 console.log('Zalogowano');
-            }).catch((e => console.log(e.message)))
+                toastr.success('Jesteś zalogowany!')
+            }).catch((e => toastr.error('Nie udało się zalogować, złe hasło lub email!')))
     }
 
     emailChangeHandler = (e) => {
