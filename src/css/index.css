@@ -137,11 +137,6 @@ body {
   background-color: #333333;
 }
 
-.top-bar-logo {
-  width: 40%;
-  height: 40%;
-}
-
 .top-bar-logo-center {
   text-align: -webkit-center;
 }
@@ -226,3 +221,37 @@ a:focus {
   background-color: #4CD964;
 }
 /*TOASTR*/
+
+/*ProductList*/
+.searched-container {
+  border: 1px solid #eee;
+  background-color: white;
+  margin-bottom: 2px;
+  padding: 15px;
+  -webkit-transition-duration: 0.4s;
+
+}
+
+.searched-container:hover {
+  background-color: #E9EEF1;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.searched-button-padding {
+    padding: 15px;
+}
+
+.font-change-color {
+    color: #f39c12;
+}
+
+.more-info-padding {
+    padding-top: 5px;
+}
+/*ProductList*/

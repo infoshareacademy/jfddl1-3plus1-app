@@ -11,7 +11,7 @@ class TopBar extends React.Component {
     render() {
         return (
             <Grid fluid>
-                <Row className="top-bar-padding">
+                <Row className="top-bar-padding row-eq-height">
                     <Col md={4} className="text-left left-button-padding">
                         <Button onClick={event => {
                             event.preventDefault();

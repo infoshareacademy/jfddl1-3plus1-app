@@ -231,7 +231,8 @@ class MainSearch extends React.Component {
 
         </Row>
         <Row className="text-center">
-          <h4>Wyszukane części:</h4>
+          <h4>Wyszukane części</h4>
+          <hr className="register-hr"/>
 
           <ProductList link={this.state.productListLink}/>
 
