@@ -217,4 +217,12 @@ a:focus {
 #toast-container > div:hover {
   box-shadow: 0;
 }
+
+.toast-error {
+  background-color: #FF3B30;
+}
+
+.toast-success {
+  background-color: #4CD964;
+}
 /*TOASTR*/
