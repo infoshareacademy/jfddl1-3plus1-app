@@ -62,11 +62,11 @@ class ProductList extends React.Component {
                          <div>
                           <Grid key={part.link} className="searched-container">
                             <Row className="row-eq-height">
-                              <Col md={4}>
+                              <Col md={4} className="add-name-padding">
                                 <h5 className="font-change-color">Nazwa</h5>
                                 <p>{part.name}</p>
                               </Col>
-                              <Col md={4} className="more-info-padding">
+                              <Col md={4}>
                                 <p><span className="font-change-color">Producent:</span> {part.brand}</p>
                                 <p><span className="font-change-color">Numer katalogowy:</span> {part.number}</p>
                                 <p><span className="font-change-color">Status:</span> {part.status}</p>

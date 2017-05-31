@@ -226,7 +226,7 @@ a:focus {
 .searched-container {
   border: 1px solid #eee;
   background-color: white;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   padding: 15px;
   -webkit-transition-duration: 0.4s;
 
@@ -244,14 +244,14 @@ a:focus {
 }
 
 .searched-button-padding {
-    padding: 15px;
+    padding: 30px;
 }
 
 .font-change-color {
     color: #f39c12;
 }
 
-.more-info-padding {
-    padding-top: 5px;
+.add-name-padding {
+  padding: 13px;
 }
 /*ProductList*/
