@@ -1,10 +1,9 @@
 import React from 'react'
-
-const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
-
 import {Tabs, Tab, Table, Button, Col, Row} from 'react-bootstrap'
 
 import * as firebase from 'firebase'
+
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
 
 class ProductWindow extends React.Component {
     state = {
@@ -47,11 +46,9 @@ class ProductWindow extends React.Component {
     handleAddToFavorites = () => {
         if (this.state.favorites.indexOf(this.state.stock) === -1) { // TODO deep comparin objects
 
-
             /*{
                 link: {}
             }*/
-
 
             this.state.favorites.push(this.state.stock);
             var userId = firebase.auth().currentUser.uid;
@@ -67,7 +64,6 @@ class ProductWindow extends React.Component {
         }
         console.log('Dodane do favorites', this.state.favorites);
     };
-
 
     render() {
         return (

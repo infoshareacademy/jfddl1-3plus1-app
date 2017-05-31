@@ -1,5 +1,5 @@
 import React from 'react'
-import {Table, Button, Col, Grid, Row } from 'react-bootstrap'
+import { Button, Col, Grid, Row } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
@@ -27,33 +27,6 @@ class ProductList extends React.Component {
     }
 
     return (
-      /*<div>
-          <Table striped bordered condensed hover>
-      <thead>
-      <tr>
-      <th>Producent części</th>
-      <th>Nazwa części</th>
-      <th>Numer katalogowy</th>
-      </tr>
-      </thead>
-      <tbody>
-      {
-          this.state.list.map((part) => {
-                  const path = 'productWindow/'+encodeURIComponent(part.link);
-                 return <tr key={part.link}>
-              <td>{part.brand}</td>
-              <td>{part.name}</td>
-              <td>{part.number}</td>
-              <Link to={path}>
-                  <Button>Przejdź do części</Button>
-              </Link>
-            </tr>
-          }
-          )
-      }
-  </tbody>
-  </Table>
-  </div>*/
       <div>
           {
               this.state.list.map((part) => {
