@@ -8,7 +8,8 @@ const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademyco
 class ProductWindow extends React.Component {
     state = {
         stock: null,
-        favorites: []
+        favorites: [],
+        favoritesUrls: []
     };
 
     componentWillMount() {
@@ -44,12 +45,15 @@ class ProductWindow extends React.Component {
     }
 
     handleAddToFavorites = () => {
-        if (this.state.favorites.indexOf(this.state.stock) === -1) { // TODO deep comparin objects
-
-            /*{
-                link: {}
-            }*/
-
+        console.log(this.state.favoritesUrls);
+        console.log(this.state.stock.parts[0].link);
+        if (this.state.favoritesUrls.indexOf(this.state.stock.parts[0].link) === -1) {// TODO deep comparin objects
+            this.state.favoritesUrls.push(this.state.stock.parts[0].link);
+            console.log('pierwszy', this.state.stock.parts.link);
+            console.log('pierwszy', this.state.favoritesUrls);
+            if (this.state.favorites === null) {
+                this.state.favorites = [];
+            }
             this.state.favorites.push(this.state.stock);
             var userId = firebase.auth().currentUser.uid;
             if (firebase.auth().currentUser) {
