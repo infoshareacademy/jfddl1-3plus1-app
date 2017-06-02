@@ -3,13 +3,17 @@ import {Tabs, Tab, Table, Button, Col, Row} from 'react-bootstrap'
 
 import * as firebase from 'firebase'
 
+import * as toastr from 'toastr'
+
 const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
 
 class ProductWindow extends React.Component {
     state = {
         stock: null,
         favorites: [],
-        favoritesUrls: []
+        favoritesUrls: [],
+        cart: [],
+        cartUrls: []
     };
 
     componentWillMount() {
@@ -40,6 +44,21 @@ class ProductWindow extends React.Component {
                         ;
                     });
             }
+        });
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                var userId = firebase.auth().currentUser.uid;
+                firebase.database().ref('/').child('userData').child(userId).child('cart').once('value')
+                    .then((snapshot) => {
+                        console.log('CART DATA FETCHED FROM FB - ', snapshot.val());
+                        this.setState({
+                                cart: snapshot.val()
+                            }
+                        )
+                        ;
+                    });
+            }
         })
 
     }
@@ -63,10 +82,39 @@ class ProductWindow extends React.Component {
                     });
             }
             console.log('NOT IN FAV SO ADDED');
+            toastr.success('Dodano do ulubionych!')
         }else{
             console.log('ALREADY IN FAV');
+            toastr.error('Produkt został już dodany!!')
         }
         console.log('Dodane do favorites', this.state.favorites);
+    };
+
+    handleAddToCart = () => {
+        console.log(this.state.cartUrls);
+        console.log(this.state.stock.parts[0].link);
+        if (this.state.cartUrls.indexOf(this.state.stock.parts[0].link) === -1) {
+            this.state.cartUrls.push(this.state.stock.parts[0].link);
+            console.log('pierwszy', this.state.stock.parts.link);
+            console.log('pierwszy', this.state.cartUrls);
+            if (this.state.cart === null) {
+                this.state.cart = [];
+            }
+            this.state.cart.push(this.state.stock);
+            var userId = firebase.auth().currentUser.uid;
+            if (firebase.auth().currentUser) {
+                firebase.database().ref('/').child('userData').child(userId).child('cart').set(this.state.cart)
+                    .then(() => {
+                        console.log('DATA SENT TO FB!');
+                    });
+            }
+            console.log('NOT IN CART SO ADDED');
+            toastr.success('Dodano do koszyka!')
+        }else{
+            console.log('ALREADY IN CART');
+            toastr.error('Produkt znajduje się już w koszyku!')
+        }
+        console.log('Dodane do cart', this.state.cart);
     };
 
     render() {
@@ -154,17 +202,12 @@ class ProductWindow extends React.Component {
                     <Col xs={12} md={6}>
                         <tr>
                             <td>
-                                <a href="https://allegro.pl/">
-                                    <Button>
-                                        <h4>KUP TERAZ</h4>
+                                    <Button onClick={this.handleAddToCart}>
+                                        <h4>Dodaj do koszyka</h4>
                                     </Button>
-                                </a>
                                 <Button onClick={this.handleAddToFavorites}>
                                     <h4>Dodaj do ulubionych</h4>
                                 </Button>
-                            </td>
-                            <td>
-                                <h5>Już teraz możesz zamówić wybrany produkt</h5>
                             </td>
                         </tr>
                     </Col>
