@@ -10,8 +10,9 @@ class YourFavoriteList extends React.Component {
                         <h4>
                             Ulubione
                         </h4>
+                        <hr className="register-hr"/>
                     </Col>
-                    <Col xs={6} md={3} className="center-image">
+                    <Col xs={6} md={3} className="center-image item-body">
                         <Image className="image-size" responsive src={process.env.PUBLIC_URL + '/images/search_placeholder.png'}/>
                         <p>Nazwa produktu</p>
                     </Col>

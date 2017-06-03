@@ -36,5 +36,3 @@ class LogInModal extends React.Component {
 }
 
 export default LogInModal
-
-

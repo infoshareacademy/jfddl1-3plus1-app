@@ -1,6 +1,6 @@
 import React from 'react'
-import { stack as BurgerMenu } from 'react-burger-menu'
 import { Link } from 'react-router-dom'
+import { stack as BurgerMenu } from 'react-burger-menu'
 
 const styles = {
     bmBurgerButton: {
@@ -17,7 +17,7 @@ const styles = {
         background: '#bdc3c7'
     },
     bmMenu: {
-        background: '#000000',
+        background: '#333333',
         padding: '2.5em 1.5em 0',
         fontSize: '1.15em'
     },
@@ -31,7 +31,7 @@ const styles = {
     bmOverlay: {
         background: 'rgba(0, 0, 0, 0.3)'
     }
-}
+};
 
 const BurgerMenuWrapper = (props) => (
     <div id="outer-container">
@@ -56,7 +56,6 @@ const BurgerMenuWrapper = (props) => (
             }
         </div>
     </div>
-)
+);
 
 export default BurgerMenuWrapper
-

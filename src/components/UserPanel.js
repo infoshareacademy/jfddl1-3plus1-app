@@ -1,11 +1,6 @@
 import React from 'react'
 import { Grid, Row, Col, Image } from 'react-bootstrap'
-
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 const Profile = () => (
     <div>
@@ -18,7 +13,6 @@ const Settings = () => (
         <h2>Ustawienia</h2>
     </div>
 );
-
 
 const Saved = () => (
     <div>
