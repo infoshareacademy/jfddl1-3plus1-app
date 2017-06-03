@@ -220,6 +220,11 @@ a:focus {
 .toast-success {
   background-color: #4CD964;
 }
+
+.toast-top-right {
+  top: 90px;
+  right: 7px;
+}
 /*TOASTR*/
 
 /*ProductList*/
