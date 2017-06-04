@@ -1,5 +1,5 @@
 import React from 'react'
-import {Tabs, Tab, Table, Button, Col, Row} from 'react-bootstrap'
+import { Button, Grid, Row, Col, Tab, Tabs, Image } from 'react-bootstrap'
 
 import * as firebase from 'firebase'
 
@@ -66,7 +66,7 @@ class ProductWindow extends React.Component {
     handleAddToFavorites = () => {
         console.log(this.state.favoritesUrls);
         console.log(this.state.stock.parts[0].link);
-        if (this.state.favoritesUrls.indexOf(this.state.stock.parts[0].link) === -1) {// TODO deep comparin objects
+        if (this.state.favoritesUrls.indexOf(this.state.stock.parts[0].link) === -1) {
             this.state.favoritesUrls.push(this.state.stock.parts[0].link);
             console.log('pierwszy', this.state.stock.parts.link);
             console.log('pierwszy', this.state.favoritesUrls);
@@ -119,99 +119,89 @@ class ProductWindow extends React.Component {
 
     render() {
         return (
-            <div >
-
-                <h2 className="text-center">Informacje o produkcie</h2>
-
-                <Row>
-                    <Col xs={12} md={6}>
-                        <Tabs defaultActiveKey={1} id="page1">
-                            <Tab eventKey={1} title="Szczegółowe informacje ">
-                                {
-                                    this.state.stock === null ? <p>'Pobieranie danych…' </p> :
-
-                                        <Row>
-                                            <Col xs={6} className="text-center">
-                                                <Table striped bordered condensed hover>
-                                                    <thead>
-
-                                                    </thead>
-
-                                                    <tbody>
-                                                    <tr>
-                                                        <th>Nazwa</th>
-                                                        <td><p>{this.state.stock.part.data.brand}</p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Model</th>
-                                                        <td><p>{this.state.stock.part.data.number}</p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Photo</th>
-                                                        <td>
-                                                            <img src={this.state.stock.part.jpg[0]} alt="No data"/>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-
-                                                </Table>
-                                            </Col>
-                                        </Row>
-                                }
-
-                            </Tab>
-                            <Tab eventKey={2} title="Dostawa i płatność">
-                                <ul>
-
-                                    <li>
-                                        <h3 >Darmowa wysyłka od 150 zł!</h3>
-                                        UWAGA! Dla zamówień powyżej 150 zł nie musisz u nas płacić za wysyłkę!
-                                    </li>
-
-                                    <li>
-                                        <h3 >Aż 30 dni na zwrot</h3>
-                                        Korzystając z oferowanego przez nas przedłużonego prawa do zwrotu, możesz
-                                        zwrócić produkt nawet do
-                                        30 dni po zakupie.
-                                    </li>
-
-                                    <li>
-                                        <h3>Bezpłatny zwrot</h3>
-                                        My płacimy za zwroty. W związku z tym konieczność odesłania produktu nie oznacza
-                                        dla Ciebie
-                                        dodatkowych kosztów.
-                                    </li>
-                                </ul>
-                            </Tab>
-
-                            <Tab eventKey={3} title="Skontaktuj sie z nami">
-                                <ul>
-                                    <li>
-                                        <h3>Porada konsultanta</h3>
-                                        Nie jesteś pewien czy któraś z części pasuje do Twojego auta? Nie przejmuj się!
-                                        Dzwoń do nas.
-                                        <p>Nasz konsultant czeka na Twój telefon.
-                                            <strong>(45) 123-45-67 </strong></p>
-                                    </li>
-                                </ul>
-                            </Tab>
-
-                        </Tabs>
-                    </Col>
-
-                    <Col xs={12} md={6}>
-                        <tr>
-                            <td>
-                                    <Button onClick={this.handleAddToCart}>
-                                        <h4>Dodaj do koszyka</h4>
-                                    </Button>
-                                <Button onClick={this.handleAddToFavorites}>
-                                    <h4>Dodaj do ulubionych</h4>
-                                </Button>
-                            </td>
-                        </tr>
-                    </Col>
-                </Row>
+            <div>
+                {
+                    /*this.state.stock === null ? <p>'Pobieranie danych…' </p> :
+                        <div>
+                            <p>{this.state.stock.part.data.brand}</p>
+                            <p>{this.state.stock.part.data.number}</p>
+                            <img src={this.state.stock.part.jpg[0]} alt="No data"/>
+                            <Button onClick={this.handleAddToCart}>
+                                <h4>Dodaj do koszyka</h4>
+                            </Button>
+                            <Button onClick={this.handleAddToFavorites}>
+                                <h4>Dodaj do ulubionych</h4>
+                            </Button>
+                        </div>*/
+                    this.state.stock === null ? <p>'Pobieranie danych…' </p> :
+                    <Grid>
+                        <Row className="row-eq-height upper-row-margin">
+                            <Col xs={4}>
+                                <div>
+                                    <Image responsive src={this.state.stock.part.jpg[0]} alt="Brak zdjęcia w bazie"/>
+                                </div>
+                            </Col>
+                            <Col xs={4}>
+                                <Row>
+                                    <h4>{this.state.stock.part.data.name}</h4>
+                                    <h5 className="add-margin-top">Dane:</h5>
+                                    <p><span className="font-change-color">Producent:</span> {this.state.stock.part.data.brand}</p>
+                                    <p><span className="font-change-color">Numer katalogowy:</span> {this.state.stock.part.data.number}</p>
+                                    <p><span className="font-change-color">Status:</span> {this.state.stock.part.data.status}</p>
+                                </Row>
+                                <Row className="add-margin-buttons">
+                                    <Col className="flexcontainer">
+                                        <Button onClick={this.handleAddToCart} className="add-margin-right">
+                                            Dodaj do koszyka
+                                        </Button>
+                                        <Button onClick={this.handleAddToFavorites} className="add-margin-left">
+                                            Dodaj do ulubionych
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col xs={4}>
+                                <Row>
+                                    <h5>Opis:</h5>
+                                    <p>Lorem ipsum dolor sit amet nibh. Vestibulum ligula. Etiam vestibulum iaculis. Curabitur at interdum rhoncus, dui tincidunt varius risus nec libero et malesuada congue. Mauris eget dolor. Duis quam ultricies eu, neque. Etiam hendrerit nonummy. Nam dolor placerat vehicula sapien dui aliquam euismod convallis consequat. Donec faucibus, erat a sapien. Praesent vitae neque ultrices posuere cubilia Curae, Nullam aliquet, diam in erat augue, ullamcorper ligula dui, eget volutpat ante, porta ac, rhoncus nunc, nonummy ligula. Proin dapibus, libero et lacus lacus nec tellus.</p>
+                                </Row>
+                            </Col>
+                        </Row>
+                        <Row className="tabs-margin">
+                            <Tabs defaultActiveKey={2} id="tabs">
+                                <Tab eventKey={1} title="Dostawa i płatność">
+                                    <ul>
+                                        <li>
+                                            <h3 >Darmowa wysyłka od 150 zł!</h3>
+                                            UWAGA! Dla zamówień powyżej 150 zł nie musisz u nas płacić za wysyłkę!
+                                        </li>
+                                        <li>
+                                            <h3 >Aż 30 dni na zwrot</h3>
+                                            Korzystając z oferowanego przez nas przedłużonego prawa do zwrotu, możesz zwrócić produkt nawet do
+                                            30 dni po zakupie.
+                                        </li>
+                                        <li>
+                                            <h3>Bezpłatny zwrot</h3>
+                                            My płacimy za zwroty. W związku z tym konieczność odesłania produktu nie oznacza dla Ciebie
+                                            dodatkowych kosztów.
+                                        </li>
+                                    </ul>
+                                </Tab>
+                                <Tab eventKey={2} title="Porada Konsultanta">
+                                    <ul>
+                                        <li>
+                                            <h3>Porada konsultanta</h3>
+                                            Nie jesteś pewien czy któraś z części pasuje do Twojego auta? Nie przejmuj się! Dzwoń do nas.
+                                            <p>Nasz konsultant czeka na Twój telefon.
+                                                <strong>(45) 123-45-67 </strong></p>
+                                        </li>
+                                    </ul>
+                                </Tab>
+                                <Tab eventKey={3} title="Tab 3">Tab 3 content</Tab>
+                            </Tabs>
+                        </Row>
+                    </Grid>
+                }
             </div>
         )
     }

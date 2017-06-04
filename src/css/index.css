@@ -134,6 +134,7 @@ body {
 /*TOP BAR*/
 .top-bar-padding {
   padding: 15px;
+  margin-bottom: 50px;
 }
 
 .top-bar-logo-center {
@@ -221,8 +222,9 @@ a:focus {
 }
 
 .toast-top-right {
-  top: 90px;
+  top: 100px;
   right: 7px;
+  position: fixed;
 }
 /*TOASTR*/
 
@@ -311,4 +313,33 @@ a:focus {
 
 .glyphicon-ok {
   color: #f39c12;
+}
+
+.tabs-margin {
+  margin-top: 20px;
+}
+
+.add-margin-top {
+  margin-top: 45px;
+}
+
+.add-margin-buttons {
+  margin-top: 35px;
+}
+
+.flexcontainer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.add-margin-left {
+  margin-left: 3px;
+}
+
+.add-margin-right {
+  margin-right: 3px;
 }
