@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Col, Grid, Row } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
-const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru"
 
 class ProductList extends React.Component {
   state = {

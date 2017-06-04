@@ -2,7 +2,6 @@ import React from 'react'
 import MainSearch from './MainSearch'
 import LastAddedFavoriteList from './LastAddedFavoriteList'
 import {Grid, Row, Glyphicon } from 'react-bootstrap'
-
 import * as firebase from 'firebase'
 
 class Dashboard extends React.Component {

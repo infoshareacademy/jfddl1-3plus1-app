@@ -6,7 +6,6 @@ class ShowRegister extends React.Component {
 
     constructor(...args) {
         super(...args)
-
         this.state = {}
     }
 

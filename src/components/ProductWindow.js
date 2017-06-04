@@ -31,7 +31,7 @@ class ProductWindow extends React.Component {
 
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                var userId = firebase.auth().currentUser.uid;
+                var userId = firebase.auth().currentUser.uid
                 firebase.database().ref('/').child('userData').child(userId).child('favorites').once('value')
                     .then((snapshot) => {
                         console.log('FAV FETCHED FROM FB - ', snapshot.val())
@@ -45,7 +45,7 @@ class ProductWindow extends React.Component {
 
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                var userId = firebase.auth().currentUser.uid;
+                var userId = firebase.auth().currentUser.uid
                 firebase.database().ref('/').child('userData').child(userId).child('cart').once('value')
                     .then((snapshot) => {
                         console.log('CART DATA FETCHED FROM FB - ', snapshot.val())

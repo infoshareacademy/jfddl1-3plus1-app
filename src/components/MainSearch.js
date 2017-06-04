@@ -5,7 +5,7 @@ import {Grid, Row, Col } from 'react-bootstrap'
 import * as toastr from 'toastr'
 import ProductList from './ProductList'
 
-const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru"
 
 class MainSearch extends React.Component {
   state = {
@@ -26,7 +26,7 @@ class MainSearch extends React.Component {
     subsubsubcategorys: [],
     productListVisible: false,
     productListLink: null
-  };
+  }
 
   mapWhatIsSelectedSelectedToWhatShouldBeDownloaded = (whatIsSelected) => {
     const mapObject =
@@ -52,7 +52,7 @@ class MainSearch extends React.Component {
     ).then((response) => {
       return response.json()
     }).then((data) => {
-      return JSON.parse(data.body).data;
+      return JSON.parse(data.body).data
     }).then((data) => {
       console.log('BRANDS ARE FETCHED - ', data)
       data = data.filter((el, index) => {
@@ -84,17 +84,17 @@ class MainSearch extends React.Component {
 
   handleSelectCallback = (link, whatIsSelected, whatShouldBeDownloaded) => {
     let selectedObject = this.state[whatIsSelected].filter((element) => {
-      if (element.link === link) return true;
+      if (element.link === link) return true
     })[0]
-    console.log('selectedObject', selectedObject);
+    console.log('selectedObject', selectedObject)
     if (selectedObject && selectedObject.has_children === false) {
-      console.log('NO CHILDREN', link);
+      console.log('NO CHILDREN', link)
       this.setState({
         productListVisible: true,
         productListLink: link
       })
     } else {
-      let url = API_URL + link;
+      let url = API_URL + link
       console.log(url)
       fetch(
         url

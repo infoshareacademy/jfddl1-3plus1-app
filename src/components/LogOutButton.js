@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Grid, Row, Col } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import * as toastr from 'toastr'
 import * as firebase from 'firebase'
 
