@@ -3,7 +3,7 @@ import {FormGroup, FormControl, Button, Col} from 'react-bootstrap'
 import * as firebase from 'firebase'
 import * as toastr from 'toastr'
 
-var provider = new firebase.auth.FacebookAuthProvider();
+const provider = new firebase.auth.FacebookAuthProvider()
 
 class LoginForm extends React.Component {
     state = {
@@ -14,20 +14,19 @@ class LoginForm extends React.Component {
     facebookLoginHandler = (e) => {
         e.preventDefault()
         firebase.auth().signInWithPopup(provider).then(function(result) {
-            var token = result.credential.accessToken;
+            var token = result.credential.accessToken
             // The signed-in user info.
-            var user = result.user;
+            var user = result.user
             toastr.success('Zalogowano przez Facebook!')
-            console.log(result);
+            console.log(result)
         }).catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            var email = error.email;
-            var credential = error.credential;
+            var errorCode = error.code
+            var errorMessage = error.message
+            var email = error.email
+            var credential = error.credential
 
-            console.log(error);
-        });
-
+            console.log(error)
+        })
     }
 
     loginHandler = (e) => {

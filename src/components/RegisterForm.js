@@ -7,29 +7,29 @@ class RegisterForm extends React.Component {
     state = {
         email: '',
         password: ''
-    };
+    }
 
     loginHandler = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
-                console.log('Zarejestrowano');
+                console.log('Zarejestrowano')
                 toastr.success('Zarejestrowano!')
                 toastr.success('Zalogowano!')
             }).catch((e => toastr.error('Konto o podanym adresie email już istnieje! Wybierz inny.')))
-    };
+    }
 
     emailChangeHandler = (e) => {
         this.setState({
             email: e.target.value
-        });
-    };
+        })
+    }
 
     passwordChangeHandler = (e) => {
         this.setState({
             password: e.target.value
-        });
-    };
+        })
+    }
 
     render() {
         return (

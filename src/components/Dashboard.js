@@ -1,7 +1,7 @@
 import React from 'react'
 import MainSearch from './MainSearch'
-import LastAddedFavoriteList from './LastAddedFavoriteList';
-import {Grid, Row, Col, Glyphicon } from 'react-bootstrap'
+import LastAddedFavoriteList from './LastAddedFavoriteList'
+import {Grid, Row, Glyphicon } from 'react-bootstrap'
 
 import * as firebase from 'firebase'
 

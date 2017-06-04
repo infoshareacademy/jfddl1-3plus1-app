@@ -5,9 +5,9 @@ import RegisterForm from './RegisterForm'
 class ShowRegister extends React.Component {
 
     constructor(...args) {
-        super(...args);
+        super(...args)
 
-        this.state = {};
+        this.state = {}
     }
 
     render() {
@@ -24,7 +24,7 @@ class ShowRegister extends React.Component {
                     </div>
                 </Collapse>
             </div>
-        );
+        )
     }
 }
 

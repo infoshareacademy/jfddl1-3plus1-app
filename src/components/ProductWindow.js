@@ -1,11 +1,9 @@
 import React from 'react'
 import { Button, Grid, Row, Col, Tab, Tabs, Image } from 'react-bootstrap'
-
 import * as firebase from 'firebase'
-
 import * as toastr from 'toastr'
 
-const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru"
 
 class ProductWindow extends React.Component {
     state = {
@@ -14,125 +12,110 @@ class ProductWindow extends React.Component {
         favoritesUrls: [],
         cart: [],
         cartUrls: []
-    };
+    }
 
     componentWillMount() {
         fetch(
             API_URL + this.props.match.params.link
         ).then((response) => {
-            return response.json();
+            return response.json()
         }).then((data) => {
-            return JSON.parse(data.body).data;
+            return JSON.parse(data.body).data
         }).then((data) => {
-                console.log('STOCK DATA POBRANE - ', data);
+                console.log('STOCK DATA POBRANE - ', data)
                 this.setState({
                     stock: data
-                });
+                })
             }
-        );
+        )
 
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 var userId = firebase.auth().currentUser.uid;
                 firebase.database().ref('/').child('userData').child(userId).child('favorites').once('value')
                     .then((snapshot) => {
-                        console.log('FAV FETCHED FROM FB - ', snapshot.val());
+                        console.log('FAV FETCHED FROM FB - ', snapshot.val())
                         this.setState({
                                 favorites: snapshot.val()
                             }
                         )
-                        ;
-                    });
+                    })
             }
-        });
+        })
 
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 var userId = firebase.auth().currentUser.uid;
                 firebase.database().ref('/').child('userData').child(userId).child('cart').once('value')
                     .then((snapshot) => {
-                        console.log('CART DATA FETCHED FROM FB - ', snapshot.val());
+                        console.log('CART DATA FETCHED FROM FB - ', snapshot.val())
                         this.setState({
                                 cart: snapshot.val()
                             }
                         )
-                        ;
-                    });
+                    })
             }
         })
-
     }
 
     handleAddToFavorites = () => {
-        console.log(this.state.favoritesUrls);
-        console.log(this.state.stock.parts[0].link);
+        console.log(this.state.favoritesUrls)
+        console.log(this.state.stock.parts[0].link)
         if (this.state.favoritesUrls.indexOf(this.state.stock.parts[0].link) === -1) {
-            this.state.favoritesUrls.push(this.state.stock.parts[0].link);
-            console.log('pierwszy', this.state.stock.parts.link);
-            console.log('pierwszy', this.state.favoritesUrls);
+            this.state.favoritesUrls.push(this.state.stock.parts[0].link)
+            console.log('pierwszy', this.state.stock.parts.link)
+            console.log('pierwszy', this.state.favoritesUrls)
             if (this.state.favorites === null) {
-                this.state.favorites = [];
+                this.state.favorites = []
             }
-            this.state.favorites.push(this.state.stock);
-            var userId = firebase.auth().currentUser.uid;
+            this.state.favorites.push(this.state.stock)
+            var userId = firebase.auth().currentUser.uid
             if (firebase.auth().currentUser) {
                 firebase.database().ref('/').child('userData').child(userId).child('favorites').set(this.state.favorites)
                     .then(() => {
-                        console.log('DATA SENT TO FB!');
-                    });
+                        console.log('DATA SENT TO FB!')
+                    })
             }
-            console.log('NOT IN FAV SO ADDED');
+            console.log('NOT IN FAV SO ADDED')
             toastr.success('Dodano do ulubionych!')
         }else{
-            console.log('ALREADY IN FAV');
+            console.log('ALREADY IN FAV')
             toastr.error('Produkt został już dodany!!')
         }
-        console.log('Dodane do favorites', this.state.favorites);
-    };
+        console.log('Dodane do favorites', this.state.favorites)
+    }
 
     handleAddToCart = () => {
-        console.log(this.state.cartUrls);
-        console.log(this.state.stock.parts[0].link);
+        console.log(this.state.cartUrls)
+        console.log(this.state.stock.parts[0].link)
         if (this.state.cartUrls.indexOf(this.state.stock.parts[0].link) === -1) {
-            this.state.cartUrls.push(this.state.stock.parts[0].link);
-            console.log('pierwszy', this.state.stock.parts.link);
-            console.log('pierwszy', this.state.cartUrls);
+            this.state.cartUrls.push(this.state.stock.parts[0].link)
+            console.log('pierwszy', this.state.stock.parts.link)
+            console.log('pierwszy', this.state.cartUrls)
             if (this.state.cart === null) {
-                this.state.cart = [];
+                this.state.cart = []
             }
-            this.state.cart.push(this.state.stock);
-            var userId = firebase.auth().currentUser.uid;
+            this.state.cart.push(this.state.stock)
+            var userId = firebase.auth().currentUser.uid
             if (firebase.auth().currentUser) {
                 firebase.database().ref('/').child('userData').child(userId).child('cart').set(this.state.cart)
                     .then(() => {
-                        console.log('DATA SENT TO FB!');
-                    });
+                        console.log('DATA SENT TO FB!')
+                    })
             }
-            console.log('NOT IN CART SO ADDED');
+            console.log('NOT IN CART SO ADDED')
             toastr.success('Dodano do koszyka!')
         }else{
-            console.log('ALREADY IN CART');
+            console.log('ALREADY IN CART')
             toastr.error('Produkt znajduje się już w koszyku!')
         }
-        console.log('Dodane do cart', this.state.cart);
-    };
+        console.log('Dodane do cart', this.state.cart)
+    }
 
     render() {
         return (
             <div>
                 {
-                    /*this.state.stock === null ? <p>'Pobieranie danych…' </p> :
-                        <div>
-                            <p>{this.state.stock.part.data.brand}</p>
-                            <p>{this.state.stock.part.data.number}</p>
-                            <img src={this.state.stock.part.jpg[0]} alt="No data"/>
-                            <Button onClick={this.handleAddToCart}>
-                                <h4>Dodaj do koszyka</h4>
-                            </Button>
-                            <Button onClick={this.handleAddToFavorites}>
-                                <h4>Dodaj do ulubionych</h4>
-                            </Button>
-                        </div>*/
                     this.state.stock === null ? <p>'Pobieranie danych…' </p> :
                     <Grid>
                         <Row className="row-eq-height upper-row-margin">

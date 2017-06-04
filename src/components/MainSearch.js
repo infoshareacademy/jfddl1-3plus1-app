@@ -38,7 +38,7 @@ class MainSearch extends React.Component {
         subcategorys: "subsubcategorys",
         subsubcategorys: "subsubsubcategorys"
       }
-    return mapObject[whatIsSelected];
+    return mapObject[whatIsSelected]
   }
 
   componentWillMount() {
@@ -78,48 +78,48 @@ class MainSearch extends React.Component {
     const whatIsSelected = data.name;
     const magicHere = 'selected' + (whatIsSelected.substr(0, 1).toUpperCase()) + whatIsSelected.substr(1, whatIsSelected.length - 2)
     let state = {}
-    state[magicHere] = link;
-    this.setState(state, this.handleSelectCallback(link, whatIsSelected, this.mapWhatIsSelectedSelectedToWhatShouldBeDownloaded(whatIsSelected)));
-  };
+    state[magicHere] = link
+    this.setState(state, this.handleSelectCallback(link, whatIsSelected, this.mapWhatIsSelectedSelectedToWhatShouldBeDownloaded(whatIsSelected)))
+  }
 
   handleSelectCallback = (link, whatIsSelected, whatShouldBeDownloaded) => {
     let selectedObject = this.state[whatIsSelected].filter((element) => {
       if (element.link === link) return true;
-    })[0];
+    })[0]
     console.log('selectedObject', selectedObject);
     if (selectedObject && selectedObject.has_children === false) {
       console.log('NO CHILDREN', link);
       this.setState({
         productListVisible: true,
         productListLink: link
-      });
+      })
     } else {
       let url = API_URL + link;
-      console.log(url);
+      console.log(url)
       fetch(
         url
       ).then((response) => {
-        return response.json();
+        return response.json()
       }).then((data) => {
-        return JSON.parse(data.body).data;
+        return JSON.parse(data.body).data
       }).then((data) => {
           if (data.length !== 0) {
-            console.log(whatShouldBeDownloaded + ' ARE FETCHED - ', data);
-            let newState = {};
-            newState[whatShouldBeDownloaded] = data;
-            console.log('newState', newState);
-            this.setState(newState);
+            console.log(whatShouldBeDownloaded + ' ARE FETCHED - ', data)
+            let newState = {}
+            newState[whatShouldBeDownloaded] = data
+            console.log('newState', newState)
+            this.setState(newState)
           } else {
             this.handleNoItemError()
           }
         }
-      );
+      )
     }
-  };
+  }
 
   handleNoItemError = () => {
-    toastr.error('Brak danych dla wybranej pozycji!');
-  };
+    toastr.error('Brak danych dla wybranej pozycji!')
+  }
 
   render() {
     return (

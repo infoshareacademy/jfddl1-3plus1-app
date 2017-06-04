@@ -24,7 +24,7 @@ class Navigation extends React.Component {
     }
 
     componentWillMount() {
-        console.log('Navigation Logged In', this.props.loggedIn);
+        console.log('Navigation Logged In', this.props.loggedIn)
     }
 
     toggleSidebar = (shouldBecomeOpen) => this.setState({
@@ -57,4 +57,4 @@ class Navigation extends React.Component {
     )
 }
 
-export default Navigation;
+export default Navigation

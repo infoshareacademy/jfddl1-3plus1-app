@@ -9,7 +9,7 @@ const backgroundStyle ={
 
 class TopBar extends React.Component {
     componentWillMount() {
-        console.log('TopBar Logged In', this.props.loggedIn);
+        console.log('TopBar Logged In', this.props.loggedIn)
     }
 
     render() {
@@ -18,7 +18,7 @@ class TopBar extends React.Component {
                 <Row className="top-bar-padding row-eq-height" style={backgroundStyle}>
                     <Col md={4} className="text-left left-button-padding">
                         <Button onClick={event => {
-                            event.preventDefault();
+                            event.preventDefault()
                             this.props.toggleSidebar(true)
                         }}>
                             <Glyphicon glyph="menu-hamburger" /> MENU

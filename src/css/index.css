@@ -311,10 +311,7 @@ a:focus {
 }
 /*Footer*/
 
-.glyphicon-ok {
-  color: #f39c12;
-}
-
+/*ProductWindow*/
 .tabs-margin {
   margin-top: 20px;
 }
@@ -342,4 +339,9 @@ a:focus {
 
 .add-margin-right {
   margin-right: 3px;
+}
+/*ProductWindow*/
+
+.glyphicon-ok {
+  color: #f39c12;
 }
