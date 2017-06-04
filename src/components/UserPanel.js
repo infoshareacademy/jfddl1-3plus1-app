@@ -6,19 +6,19 @@ const Profile = () => (
     <div>
         <h2>Profil</h2>
     </div>
-);
+)
 
 const Settings = () => (
     <div>
         <h2>Ustawienia</h2>
     </div>
-);
+)
 
 const Saved = () => (
     <div>
         <h2>Zapisane</h2>
     </div>
-);
+)
 
 class UserPanel extends React.Component {
     render() {

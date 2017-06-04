@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-
+            toastr.success('Zalogowano przez Facebook!')
             console.log(result);
         }).catch(function(error) {
             var errorCode = error.code;

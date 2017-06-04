@@ -267,3 +267,7 @@ a:focus {
   margin-top: 80px;
 }
 /*Footer*/
+
+.glyphicon-ok {
+  color: #f39c12;
+}
