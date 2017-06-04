@@ -17,13 +17,7 @@ class LogOutButton extends React.Component {
 
     render() {
         return (
-            <Grid fluid className="text-center">
-                <Row className="top-bar-padding">
-                    <Col>
-                        <Button onClick={this.logout}>Wyloguj się</Button>
-                    </Col>
-                </Row>
-            </Grid>
+            <Button onClick={this.logout}>Wyloguj się</Button>
         )
     }
 }
