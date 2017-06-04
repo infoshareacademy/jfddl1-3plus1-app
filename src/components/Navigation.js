@@ -37,7 +37,8 @@ class Navigation extends React.Component {
               isOpen={this.state.sidebarOpen}
               toggleSidebar={this.toggleSidebar}
               onStateChange={(state) => this.toggleSidebar(state.isOpen)}
-              links={links}
+              links={this.props.loggedIn ? links : links.filter(link => !['/favoriteList', '/userPanel'].includes(link.path))}
+
           >
             <Grid fluid className="main-grid-padding">
               <TopBar loggedIn={this.props.loggedIn} toggleSidebar={this.toggleSidebar}/>
