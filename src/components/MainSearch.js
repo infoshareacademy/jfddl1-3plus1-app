@@ -1,6 +1,6 @@
 import React from 'react'
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+import Select from 'react-select'
+import 'react-select/dist/react-select.css'
 import {Grid, Row, Col } from 'react-bootstrap'
 import * as toastr from 'toastr'
 import ProductList from './ProductList'
@@ -37,47 +37,47 @@ class MainSearch extends React.Component {
         categorys: "subcategorys",
         subcategorys: "subsubcategorys",
         subsubcategorys: "subsubsubcategorys"
-      };
+      }
     return mapObject[whatIsSelected];
-  };
+  }
 
   componentWillMount() {
-    this.fetchBrands();
+    this.fetchBrands()
   }
 
   fetchBrands = () => {
-    let url = API_URL + "/api/v2/";
+    let url = API_URL + "/api/v2/"
     return fetch(
       url
     ).then((response) => {
-      return response.json();
+      return response.json()
     }).then((data) => {
       return JSON.parse(data.body).data;
     }).then((data) => {
-      console.log('BRANDS ARE FETCHED - ', data);
+      console.log('BRANDS ARE FETCHED - ', data)
       data = data.filter((el, index) => {
         if (index < 400) {
-          return true;
+          return true
         } else {
-          return false;
+          return false
         }
-      });
+      })
       this.setState({
         brands: data
-      });
+      })
     }).catch((error) => {
-      console.log('ERROR FETCHING DATA - ', error);
+      console.log('ERROR FETCHING DATA - ', error)
       setTimeout(() => {
         this.fetchBrands()
-      }, 100);
-    });
-  };
+      }, 100)
+    })
+  }
 
   handleSelect = (data) => {
-    const link = data.value;
+    const link = data.value
     const whatIsSelected = data.name;
-    const magicHere = 'selected' + (whatIsSelected.substr(0, 1).toUpperCase()) + whatIsSelected.substr(1, whatIsSelected.length - 2);
-    let state = {};
+    const magicHere = 'selected' + (whatIsSelected.substr(0, 1).toUpperCase()) + whatIsSelected.substr(1, whatIsSelected.length - 2)
+    let state = {}
     state[magicHere] = link;
     this.setState(state, this.handleSelectCallback(link, whatIsSelected, this.mapWhatIsSelectedSelectedToWhatShouldBeDownloaded(whatIsSelected)));
   };

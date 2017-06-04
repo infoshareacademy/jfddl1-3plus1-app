@@ -56,6 +56,6 @@ const BurgerMenuWrapper = (props) => (
             }
         </div>
     </div>
-);
+)
 
 export default BurgerMenuWrapper

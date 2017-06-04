@@ -13,7 +13,7 @@ class LogOutButton extends React.Component {
         }).catch(function(error) {
             toastr.error('Wystąpił problem!')
         })
-    };
+    }
 
     render() {
         return (

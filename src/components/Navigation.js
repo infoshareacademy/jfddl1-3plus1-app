@@ -15,13 +15,13 @@ const links = [
     { path: '/userPanel', label: <div className="nav-item-color"><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
     { path: '/favoriteList', label: <div className="nav-item-color"><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
     { path: '/productWindow', label: <div className="nav-item-color"><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
-];
+]
 
 class Navigation extends React.Component {
 
     state = {
         sidebarOpen: false
-    };
+    }
 
     componentWillMount() {
         console.log('Navigation Logged In', this.props.loggedIn);
@@ -29,7 +29,7 @@ class Navigation extends React.Component {
 
     toggleSidebar = (shouldBecomeOpen) => this.setState({
         sidebarOpen: shouldBecomeOpen
-    });
+    })
 
     render = () => (
         <Router>

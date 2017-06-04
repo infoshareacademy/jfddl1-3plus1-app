@@ -2,13 +2,13 @@ import React from 'react'
 import { Grid, Row, Col, Glyphicon } from 'react-bootstrap'
 
 const avatarStyle ={
-    backgroundImage: "url('/public/images/footer_lodyas.png')"
-};
+    backgroundImage: `url('${process.env.PUBLIC_URL}/images/footer_lodyas.png')`
+}
 
 class Footer extends React.Component {
     render () {
         return (
-            <Grid className="text-center" style={avatarStyle}>
+            <Grid className="text-center container-fluid footer" style={avatarStyle}>
                 <Row>
                     <Col xs={12}>
                         <div>

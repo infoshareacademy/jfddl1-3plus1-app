@@ -259,3 +259,11 @@ a:focus {
   padding: 13px;
 }
 /*ProductList*/
+
+/*Footer*/
+.footer {
+  width:100%;
+  bottom:0;
+  margin-top: 80px;
+}
+/*Footer*/
