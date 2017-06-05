@@ -40,6 +40,7 @@ class ProductWindow extends React.Component {
                             }
                         )
                     })
+
             }
         })
 

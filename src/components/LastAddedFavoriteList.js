@@ -1,7 +1,25 @@
 import React from 'react'
 import { Row, Col, Image, Grid } from 'react-bootstrap'
+import * as firebase from 'firebase'
 
 class LastAddedFavoriteList extends React.Component {
+    state = {
+        loggedIn: false,
+        favorites: []
+    }
+
+    componentWillMount(){
+        var userId = firebase.auth().currentUser.uid
+        firebase.database().ref('/').child('userData').child(userId).child('favorites').once('value')
+            .then((snapshot) => {
+                console.log('FAV FETCHED FROM FB - ', snapshot.val())
+                this.setState({
+                        favorites: snapshot.val()
+                    }
+                )
+            })
+    }
+
     render() {
         return (
             <Grid>
@@ -14,30 +32,12 @@ class LastAddedFavoriteList extends React.Component {
                 </Row>
                 <hr className="register-hr"/>
                 <Row>
-                    <Col xs={6} md={3}>
-                        <div className="center-image item-body">
-                            <Image className="image-size" responsive src={process.env.PUBLIC_URL + '/images/search_placeholder.png'}/>
-                            <p>Pierwsza część</p>
-                        </div>
-                    </Col>
-                    <Col xs={6} md={3}>
-                        <div className="center-image item-body">
-                            <Image className="image-size" responsive src={process.env.PUBLIC_URL + '/images/search_placeholder.png'}/>
-                            <p>Druga część</p>
-                        </div>
-                    </Col>
-                    <Col xs={6} md={3}>
-                        <div className="center-image item-body">
-                            <Image className="image-size" responsive src={process.env.PUBLIC_URL + '/images/search_placeholder.png'}/>
-                            <p>Trzecia część</p>
-                        </div>
-                    </Col>
-                    <Col xs={6} md={3}>
-                        <div className="center-image item-body">
-                            <Image className="image-size" responsive src={process.env.PUBLIC_URL + '/images/search_placeholder.png'}/>
-                            <p>Czwarta część</p>
-                        </div>
-                    </Col>
+                    {this.state.favorites.map((favItem)=>{
+                        return <Col xs={6} md={3} className="center-image item-body">
+                            <Image className="image-size" responsive src={favItem.part.jpg[0]}/>
+                            <p>{favItem.part.data.name}</p>
+                        </Col>
+                    })}
                 </Row>
             </Grid>
         )
