@@ -15,10 +15,10 @@ class LoginForm extends React.Component {
         e.preventDefault()
         firebase.auth().signInWithPopup(provider).then(function(result) {
             var token = result.credential.accessToken
-            // The signed-in user info.
             var user = result.user
             toastr.success('Zalogowano przez Facebook!')
             console.log(result)
+            console.log('facebook user', user)
         }).catch(function(error) {
             var errorCode = error.code
             var errorMessage = error.message

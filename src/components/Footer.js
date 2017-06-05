@@ -14,7 +14,7 @@ class Footer extends React.Component {
                         <div>
                             <div className="footer-logo">
                                 <Image responsive
-                                       src={process.env.PUBLIC_URL + '/images/logo_projekt_smaller.png'}/>
+                                       src={process.env.PUBLIC_URL + '/images/logo_projekt_smaller.png'} alt="logo"/>
                             </div>
                             <a className="change-link-color" href="">Polityka prywatności</a>
                             <span><Glyphicon className="glyphicon-one-dot" glyph=""></Glyphicon></span>
@@ -23,10 +23,10 @@ class Footer extends React.Component {
                             <a className="change-link-color" href="">Regulamin</a>
                         </div>
                         <div id="changeLinkMargin">
-                            <a target="_blank" href="https://pl-pl.facebook.com/"><img src="images/facebook_icon.png"/></a>
-                            <a target="_blank" href="https://twitter.com/?lang=pl"><img src="images/twitter_icon.png"/></a>
-                            <a target="_blank" href="https://plus.google.com/collections/featured"><img src="images/googleplus_icon.png"/></a>
-                            <a target="_blank" href="https://www.youtube.com/?hl=pl&gl=PL"><img src="images/youtube_icon.png"/></a>
+                            <a target="_blank" href="https://pl-pl.facebook.com/"><img src="images/facebook_icon.png" alt="facebook"/></a>
+                            <a target="_blank" href="https://twitter.com/?lang=pl"><img src="images/twitter_icon.png" alt="twitter"/></a>
+                            <a target="_blank" href="https://plus.google.com/collections/featured"><img src="images/googleplus_icon.png" alt="google plus"/></a>
+                            <a target="_blank" href="https://www.youtube.com/?hl=pl&gl=PL"><img src="images/youtube_icon.png" alt="youtube"/></a>
                         </div>
                     </Col>
                 </Row>
