@@ -2,35 +2,35 @@ import React from 'react'
 import { Button, Col, Grid, Row } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
-const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru";
+const API_URL = "http://cors-proxy.htmldriven.com/?url=http://infoshareacademycom.2find.ru"
 
 class ProductList extends React.Component {
   state = {
     list: []
-  };
+  }
 
   render() {
     if (this.props.link && this.state.list.length === 0) {
       fetch(
         API_URL + this.props.link
       ).then((response) => {
-        return response.json();
+        return response.json()
       }).then((data) => {
-        return JSON.parse(data.body).data;
+        return JSON.parse(data.body).data
       }).then((data) => {
-          console.log('LIST FETCHED - ', data);
+          console.log('LIST FETCHED - ', data)
           this.setState({
             list: data
-          });
+          })
         }
-      );
+      )
     }
 
     return (
       <div>
           {
               this.state.list.map((part) => {
-                      const path = 'productWindow/'+encodeURIComponent(part.link);
+                      const path = 'productWindow/'+encodeURIComponent(part.link)
                       return (
                          <div>
                           <Grid key={part.link} className="searched-container">

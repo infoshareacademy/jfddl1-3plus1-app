@@ -14,22 +14,22 @@ const links = [
     { path: '/', label: <div className="nav-item-color"><Glyphicon glyph="home"></Glyphicon><span> Dashboard</span></div> },
     { path: '/userPanel', label: <div className="nav-item-color"><Glyphicon glyph="user"></Glyphicon><span> Panel użytkownika</span></div> },
     { path: '/favoriteList', label: <div className="nav-item-color"><Glyphicon glyph="star"></Glyphicon><span> Ulubione</span></div> },
-    { path: '/productWindow', label: <div className="nav-item-color"><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },
-];
+    /*{ path: '/productWindow', label: <div className="nav-item-color"><Glyphicon glyph="search"></Glyphicon><span> Okno wybranego produktu</span></div> },*/
+]
 
 class Navigation extends React.Component {
 
     state = {
         sidebarOpen: false
-    };
+    }
 
     componentWillMount() {
-        console.log('Navigation Logged In', this.props.loggedIn);
+        console.log('Navigation Logged In', this.props.loggedIn)
     }
 
     toggleSidebar = (shouldBecomeOpen) => this.setState({
         sidebarOpen: shouldBecomeOpen
-    });
+    })
 
     render = () => (
         <Router>
@@ -37,7 +37,7 @@ class Navigation extends React.Component {
               isOpen={this.state.sidebarOpen}
               toggleSidebar={this.toggleSidebar}
               onStateChange={(state) => this.toggleSidebar(state.isOpen)}
-              links={links}
+              links={this.props.loggedIn ? links : links.filter(link => !['/favoriteList', '/userPanel'].includes(link.path))}
           >
             <Grid fluid className="main-grid-padding">
               <TopBar loggedIn={this.props.loggedIn} toggleSidebar={this.toggleSidebar}/>
@@ -56,4 +56,4 @@ class Navigation extends React.Component {
     )
 }
 
-export default Navigation;
+export default Navigation

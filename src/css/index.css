@@ -133,8 +133,8 @@ body {
 
 /*TOP BAR*/
 .top-bar-padding {
-  padding: 10px;
-  background-color: #333333;
+  padding: 15px;
+  margin-bottom: 50px;
 }
 
 .top-bar-logo-center {
@@ -222,8 +222,9 @@ a:focus {
 }
 
 .toast-top-right {
-  top: 90px;
+  top: 100px;
   right: 7px;
+  position: fixed;
 }
 /*TOASTR*/
 
@@ -259,3 +260,88 @@ a:focus {
   padding: 13px;
 }
 /*ProductList*/
+
+/*Footer*/
+.footer {
+  width:100%;
+  bottom:0;
+  margin-top: 80px;
+  color: darkgray;
+  padding: 15px;
+}
+
+.glyphicon-heart {
+  color: #c0392b;
+}
+
+.glyphicon.glyphicon-one-dot:before {
+  content: "\25cf";
+  font-size: 1.5em;
+}
+
+.change-link-color {
+  color: darkgray;
+  margin: 5px;
+}
+
+.change-link-color:hover {
+  text-decoration: none;
+  color: #f39c12;
+}
+
+.change-link-color:hover, .change-link-color:focus {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+#changeLinkMargin a {
+  margin: 3px;
+}
+
+#changeLinkMargin {
+  padding: 15px;
+}
+
+#remove-margin-p p {
+  margin-bottom: 0;
+}
+
+.footer-logo {
+  text-align: -webkit-center;
+}
+/*Footer*/
+
+/*ProductWindow*/
+.tabs-margin {
+  margin-top: 20px;
+}
+
+.add-margin-top {
+  margin-top: 45px;
+}
+
+.add-margin-buttons {
+  margin-top: 35px;
+}
+
+.flexcontainer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.add-margin-left {
+  margin-left: 3px;
+}
+
+.add-margin-right {
+  margin-right: 3px;
+}
+/*ProductWindow*/
+
+.glyphicon-ok {
+  color: #f39c12;
+}

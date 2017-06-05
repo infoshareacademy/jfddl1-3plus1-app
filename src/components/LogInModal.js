@@ -1,16 +1,16 @@
 import React from 'react'
 import { Modal, Button, Glyphicon } from 'react-bootstrap'
-import LoginForm from "./LoginForm";
+import LoginForm from './LoginForm'
 import ShowRegister from './ShowRegister'
 
 class LogInModal extends React.Component {
     state = {
         showModal: false
-    };
+    }
 
-    close = () => this.setState({ showModal: false });
+    close = () => this.setState({ showModal: false })
 
-    open = () => this.setState({ showModal: true });
+    open = () => this.setState({ showModal: true })
 
     render() {
         return (
@@ -31,7 +31,7 @@ class LogInModal extends React.Component {
                     </Modal.Body>
                 </Modal>
             </div>
-        );
+        )
     }
 }
 
