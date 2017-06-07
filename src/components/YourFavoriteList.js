@@ -2,6 +2,11 @@ import React from 'react'
 import { Row, Col, Image, Grid } from 'react-bootstrap'
 import * as firebase from 'firebase'
 
+const favoriteContainerStyle = {
+    maxHeight: "250px",
+    maxWidth: "250px"
+}
+
 class YourFavoriteList extends React.Component {
     state = {
         loggedIn: false,
@@ -45,11 +50,13 @@ class YourFavoriteList extends React.Component {
                         </h4>
                         <hr className="register-hr"/>
                     </Col>
-                        {this.state.favorites.map((favItem)=>{
-                            return <Col xs={6} md={3} className="center-image item-body">
-                                <Image className="image-size" responsive src={favItem.part.jpg[0]}/>
-                                <p>{favItem.part.data.name}</p>
-                            </Col>
+                </Row>
+                <Row className="row-eq-height">
+                    {this.state.favorites.map((favItem)=>{
+                        return <Col style={favoriteContainerStyle} className="center-image item-body">
+                            <Image className="image-size" responsive src={favItem.part.jpg[0]}/>
+                            <p>{favItem.part.data.name}</p>
+                        </Col>
                         })}
                 </Row>
             </Grid>
